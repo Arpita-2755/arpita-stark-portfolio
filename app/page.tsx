@@ -5,107 +5,51 @@ import {
   Zap, ExternalLink, Github, Database, Brain, Eye, Cpu, MessageSquare, 
   Bus, Globe, BookOpen, Code, Server, Shield, Briefcase, GraduationCap, 
   Award, Linkedin, Mail, Trophy, Activity, Terminal, ChevronRight, FileCheck,
-  Twitter, Target, User, Send, Phone, Sun, Moon, Layers, Menu, X, Info
+  Twitter, Target, User, Send, Phone, Sun, Moon, Layers
 } from "lucide-react";
 
-// --- THE COMPREHENSIVE DATA MAINFRAME (Merged from all documents) ---
+// --- THE MASTER DATA MAINFRAME ---
 const MAINFRAME = {
   profile: {
     name: "Arpita Mishra",
     summary: "Machine Learning Engineer specializing in retrieval systems, representation learning, and applied AI system design. Experienced in building end-to-end ML pipelines spanning embedding generation, vector search optimization, clustering, similarity calibration, and production deployment. Strong foundation in data structures, backend architecture, and evaluation-driven model design.",
-    cgpa: "8.11 (Dean's List - Top 15% of University Batch)",
+    cgpa: "8.11 (Dean's List - Top 15% of Batch)",
     matric: "93.8% (Lions English School)",
     inter: "84.8% (Lions English School)",
     location: "Silvassa, D&NH, India",
-    phone: "+91-8140006314",
-    email: "arpitamishra2755@gmail.com"
+    email: "arpitamishra2755@gmail.com",
+    phone: "+91-8140006314"
+  },
+  contact: {
+    github: "https://github.com/Arpita-2755",
+    linkedin: "https://linkedin.com/in/arpita2755",
+    leetcode: "https://leetcode.com/u/Arpita_2755/",
+    medium: "https://medium.com/@arpitamishra2755",
+    x: "https://x.com/ArpitaM_2755"
   },
   skills: [
     { title: "Core Processors", icon: <Code className="w-5 h-5 text-stark-red" />, skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"] },
-    { title: "Neural Networks & GenAI", icon: <Brain className="w-5 h-5 text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness Testing", "TF-IDF"] },
-    { title: "Targeting Systems (CV)", icon: <Eye className="w-5 h-5 text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
-    { title: "Cloud & Support", icon: <Server className="w-5 h-5 text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design", "Concurrency Control"] }
+    { title: "Neural & GenAI", icon: <Brain className="w-5 h-5 text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness", "TF-IDF"] },
+    { title: "Targeting (CV)", icon: <Eye className="w-5 h-5 text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
+    { title: "Cloud & Support", icon: <Server className="w-5 h-5 text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design"] }
   ],
   projects: [
-    { 
-      title: "GitaRAG", 
-      subtitle: "Extractive RAG System", 
-      description: "Engineered a fully extractive RAG architecture eliminating generative hallucination. Indexed 700+ verse-level embeddings using L2-normalized FAISS inner-product search with similarity thresholding (0.45).", 
-      tags: ["FAISS", "SentenceTransformers", "RAG", "MiniLM"], 
-      github: "https://github.com/Arpita-2755/GitaRAG", 
-      demo: "https://gitarag.streamlit.app", 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <Database /> 
-    },
-    { 
-      title: "Slot Recommender", 
-      subtitle: "Healthcare NLP Intent", 
-      description: "End-to-end system converting free-text patient queries into healthcare appointment slots. Generated synthetic datasets, performed TF-IDF feature extraction, and achieved 80%+ intent classification accuracy.", 
-      tags: ["Scikit-learn", "Logistic Regression", "Streamlit", "NLP"], 
-      github: "https://github.com/Arpita-2755", 
-      demo: null, 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <Activity /> 
-    },
-    { 
-      title: "PromptGuard", 
-      subtitle: "LLM Robustness", 
-      description: "Deterministic prompt-mutation engine for detecting behavioral drift and response instability without ground-truth supervision. Enforced inference determinism via temperature control.", 
-      tags: ["distilgpt2", "HuggingFace", "Prompt Engineering"], 
-      github: "https://github.com/Arpita-2755/PromptGuard", 
-      demo: "https://promptguard-llm-robustness.streamlit.app", 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <Shield /> 
-    },
-    { 
-      title: "IntelliCampus", 
-      subtitle: "AI Smart Attendance", 
-      description: "Sub-second multi-face identification using RetinaFace and FaceNet (128-d). Calibrated similarity threshold (production: 1.0) to balance precision-recall tradeoff.", 
-      tags: ["OpenCV", "SQLAlchemy", "FAISS", "Flask"], 
-      github: "https://github.com/Arpita-2755/IntelliCampus", 
-      demo: null, 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <Eye /> 
-    },
-    { 
-      title: "RouteMate", 
-      subtitle: "Bus Reservation", 
-      description: "Concurrent user/admin workflows using queue-based seat allocation (deque) to prevent race conditions. Managed CI/CD via structured Git branching.", 
-      tags: ["Flask", "MySQL", "CI/CD", "JavaScript"], 
-      github: "https://github.com/Arpita-2755", 
-      demo: null, 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <Bus /> 
-    },
-    { 
-      title: "Speech Analyzer", 
-      subtitle: "Unsupervised ML", 
-      description: "Fully unsupervised NLP clustering pipeline using contextual MiniLM embeddings and UMAP dimensionality reduction (384→2) followed by KMeans (k=3).", 
-      tags: ["KMeans", "UMAP", "SentenceTransformers"], 
-      github: "https://github.com/Arpita-2755", 
-      demo: null, 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <MessageSquare /> 
-    },
-    { 
-      title: "Face Verify", 
-      subtitle: "DL Siamese Network", 
-      description: "Siamese-style face verification pipeline using frozen FaceNet embeddings and custom Euclidean similarity layer. Achieved 100% recall on fixed evaluation pairs.", 
-      tags: ["TensorFlow", "Keras", "FaceNet"], 
-      github: "https://github.com/Arpita-2755", 
-      demo: null, 
-      medium: "https://medium.com/@arpitamishra2755", 
-      icon: <Cpu /> 
-    }
+    { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating generative hallucination through semantic grounding in 700+ verse embeddings using FAISS L2-normalization and confidence calibration.", tags: ["FAISS", "SentenceTransformers", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Database /> },
+    { title: "Slot Recommender", subtitle: "Healthcare NLP Intent", description: "Converted free-text patient queries into appointment slots. Used synthetic datasets and TF-IDF extraction with Logistic Regression to achieve 80%+ intent accuracy.", tags: ["Scikit-learn", "TF-IDF", "NLP"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Activity /> },
+    { title: "PromptGuard", subtitle: "LLM Robustness", description: "Designed a deterministic prompt-mutation engine for detecting behavioral drift and response instability in LLMs without ground-truth supervision.", tags: ["distilgpt2", "HuggingFace", "Python"], github: "https://github.com/Arpita-2755/PromptGuard", demo: "https://promptguard-llm-robustness.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Shield /> },
+    { title: "IntelliCampus", subtitle: "AI Smart Attendance", description: "Sub-second multi-face identification using RetinaFace and FaceNet (128-d). Features calibrated similarity threshold (1.0) and modular AI engine.", tags: ["RetinaFace", "FaceNet", "Flask"], github: "https://github.com/Arpita-2755/IntelliCampus", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Eye /> },
+    { title: "RouteMate", subtitle: "Bus Reservation", description: "Concurrent user/admin workflows using queue-based seat allocation (deque) to prevent race conditions. Managed via structured Git CI/CD.", tags: ["Flask", "MySQL", "CI/CD"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Bus /> },
+    { title: "Speech Analyzer", subtitle: "Unsupervised ML", description: "Fully unsupervised NLP clustering pipeline using contextual MiniLM embeddings and UMAP reduction (384 to 2) with KMeans.", tags: ["KMeans", "UMAP", "NLP"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <MessageSquare /> },
+    { title: "Face Verify", subtitle: "DL Siamese Network", description: "Face verification pipeline using frozen FaceNet embeddings and custom Euclidean similarity layer. Achieved 100% recall on fixed pairs.", tags: ["TensorFlow", "Keras", "FaceNet"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Cpu /> }
   ],
   experience: [
     { role: "Data Analytics Participant", company: "Deloitte Australia", date: "July 2025", desc: "Analyzed transactional datasets to identify anomaly patterns and modeled business trends.", link: "https://forage-link.com" },
     { role: "Community Service Intern", company: "Indian Red Cross Society", date: "June 2024 - July 2024", desc: "Delivered adaptive STEM instruction for students with disabilities; applied inclusive teaching strategies.", link: null },
-    { role: "Core & Technical Member", company: "GitHub Students Club, LPU", date: "Sept 2024 - Present", desc: "Supported recruitment of 300+ members; conducted Git/GitHub workshops.", link: null },
+    { role: "Technical Member", company: "GitHub Students Club, LPU", date: "Sept 2024 - Present", desc: "Supported recruitment of 300+ members; conducted Git/GitHub workshops.", link: null },
     { role: "Technical Team Member", company: "Coding Blocks (DSO), LPU", date: "2023 - 2024", desc: "Competed in 36-hour ByteBash coding hackathon; coordinated full-stack workshops.", link: null }
   ],
   achievements: [
-    { title: "Team Leader - SIH 2024", desc: "Led 6-member team for 'Aqua Quest', addressgroundwater conservation via educational web game (HTML/CSS/JS + Firebase)." },
+    { title: "Team Leader - SIH 2024", desc: "Led 6-member team for 'Aqua Quest', address groundwater conservation via educational web game (HTML/CSS/JS + Firebase)." },
     { title: "1st Runner-Up - Speak & Spark", desc: "Creativity Challenge, LPU CPE. Built functional prototype under 15-minute constraint." }
   ],
   certificates: [
@@ -116,53 +60,29 @@ const MAINFRAME = {
   ]
 };
 
-// --- EHA'S COMPREHENSIVE KNOWLEDGE BASE ---
+// --- EHA'S BRAIN (Knowledge Base) ---
 const EHA_KB = [
-  { keywords: ["cgpa", "marks", "score", "grade", "dean", "rank", "10th", "12th"], 
-    response: `Arpita holds an 8.11 CGPA at LPU and is on the Dean's List (Top 15% of her batch). She scored 93.8% in her 10th grade and 84.8% in her 12th grade at Lions English School.` },
-  { keywords: ["slot", "healthcare", "recommendation", "appointment"], 
-    response: "The Slot Recommendation project converted text queries to healthcare appointments using Logistic Regression & TF-IDF. It involved generating a synthetic dataset and achieved 80%+ intent accuracy." },
-  { keywords: ["routemate", "bus", "reservation", "seat"], 
-    response: "RouteMate is a full-stack reservation platform. It uses a queue-based seat allocation (deque) to prevent race conditions and features secure session management with Flask/MySQL." },
-  { keywords: ["sih", "aqua quest", "groundwater"], 
-    response: "As Team Leader for SIH 2024, Arpita built 'Aqua Quest', a game for groundwater conservation using a 6-member team. The tech stack was HTML/CSS/JS with Firebase." },
-  { keywords: ["face", "verify", "verification", "recall"], 
-    response: "Her Face Verification system achieved 100% recall on evaluation pairs. It uses a Siamese-style pipeline with frozen FaceNet embeddings and custom Euclidean similarity layers." },
-  { keywords: ["gitarag", "hallucination", "verse"], 
-    response: "GitaRAG is a hallucination-resistant RAG system. It indexes 700+ verse embeddings and uses L2-normalized FAISS search to ensure responses are strictly grounded in retrieved passages." },
-  { keywords: ["skill", "python", "stack", "language"], 
-    response: `Core skills include ${MAINFRAME.skills[0].skills.join(", ")}. Neural expertise includes ${MAINFRAME.skills[1].skills.join(", ")}.` },
-  { keywords: ["who", "about", "arpita"], 
-    response: "Arpita Mishra is an ML Engineer specializing in retrieval systems and representation learning. She is currently architecting reliability-focused AI systems on the MARK-85 protocol." }
+  { keywords: ["cgpa", "marks", "score", "grade", "rank", "10th", "12th"], response: "Arpita holds an 8.11 CGPA at LPU (Dean's List). She scored 93.8% in 10th grade and 84.8% in 12th grade at Lions English School." },
+  { keywords: ["routemate", "bus", "reservation", "seat"], response: "RouteMate is a full-stack reservation system. It uses a queue-based seat allocation (deque) to prevent race conditions and features secure session management with Flask/MySQL." },
+  { keywords: ["slot", "healthcare", "recommendation", "appointment"], response: "The Slot Recommendation project converted free-text patient queries into appointments using Logistic Regression & TF-IDF, achieving 80%+ intent accuracy." },
+  { keywords: ["sih", "aqua quest", "groundwater"], response: "As Team Leader for SIH 2024, Arpita built 'Aqua Quest', a game for groundwater conservation using HTML/CSS/JS and Firebase." },
+  { keywords: ["face", "verify", "verification", "recall"], response: "Her Face Verification system achieved 100% recall. It uses a Siamese-style pipeline with frozen FaceNet embeddings." },
+  { keywords: ["gitarag", "hallucination", "verse"], response: "GitaRAG is an extractive RAG system indexing 700+ verse embeddings using L2-normalized FAISS search to ensure zero hallucination." },
+  { keywords: ["skill", "python", "stack", "language"], response: "Core skills include Python, C++, SQL, and Java. Specialist in RAG, Computer Vision, and Backend systems." },
+  { keywords: ["who", "about", "arpita"], response: "Arpita Mishra is an ML Engineer specializing in retrieval systems and reliability-focused AI. I, Eha, am her primary neural interface." }
 ];
 
 // --- COMPONENTS ---
 
 const HUDNavbar = ({ isDark, scrollTo }: { isDark: boolean, scrollTo: (id: string) => void }) => {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-[200] transition-all duration-500 ${scrolled ? 'w-[90%] md:w-[600px]' : 'w-[95%] md:w-[800px]'}`}>
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] w-[95%] md:w-[600px]">
       <div className={`backdrop-blur-xl border rounded-2xl p-4 flex justify-between items-center shadow-2xl ${isDark ? 'bg-black/60 border-stark-cyan/30' : 'bg-white/60 border-stark-red/30'}`}>
-        <div className="flex items-center gap-3">
-          <div className={`w-3 h-3 rounded-full animate-pulse ${isDark ? 'bg-stark-cyan shadow-[0_0_10px_#22d3ee]' : 'bg-stark-red shadow-[0_0_10px_#ef4444]'}`} />
-          <span className={`font-mono text-[10px] tracking-widest uppercase hidden md:block ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Mark-85 // Online</span>
-        </div>
-        <div className="flex gap-6">
-          {['specs', 'history', 'missions', 'nexus'].map((item) => (
-            <button key={item} onClick={() => scrollTo(item)} className={`text-[10px] font-mono uppercase tracking-widest hover:scale-110 transition-transform ${isDark ? 'text-white/60 hover:text-stark-cyan' : 'text-black/60 hover:text-stark-red'}`}>
-              {item}
-            </button>
-          ))}
-        </div>
-        <div className="hidden md:block">
-           <span className="text-[10px] font-mono opacity-30">V4.755_UPLINK</span>
-        </div>
+        {['about', 'specs', 'missions', 'nexus'].map((item) => (
+          <button key={item} onClick={() => scrollTo(item)} className={`text-[10px] font-mono uppercase tracking-widest hover:scale-110 transition-transform ${isDark ? 'text-white/60 hover:text-stark-cyan' : 'text-black/60 hover:text-stark-red'}`}>
+            {item}
+          </button>
+        ))}
       </div>
     </nav>
   );
@@ -182,7 +102,7 @@ const ArcReactor = ({ isDark }: { isDark: boolean }) => (
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
   const [chatInput, setChatInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Intelligence Online. Systems optimized. How can I assist you with Arpita's missions?" }]);
+  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Online. Ask me anything about Arpita's missions." }]);
   const [isEhaOpen, setIsEhaOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -194,7 +114,7 @@ export default function Home() {
     setChatInput("");
     setTimeout(() => {
       const match = EHA_KB.find(item => item.keywords.some(k => userMsg.includes(k)));
-      const response = match ? match.response : "Query not found in primary archives. Note: Arpita's GitHub mainframe contains 20+ other logs.";
+      const response = match ? match.response : "Query not found in primary cache. Arpita's GitHub mainframe contains 20+ other experimental logs.";
       setChatHistory(prev => [...prev, { role: "eha", text: response }]);
     }, 450);
   };
@@ -213,12 +133,10 @@ export default function Home() {
       
       <HUDNavbar isDark={isDark} scrollTo={scrollTo} />
 
-      {/* POWER MODE TOGGLE */}
-      <button onClick={() => setIsDark(!isDark)} className="fixed bottom-32 right-8 z-[110] p-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl hover:scale-110 transition-all">
+      <button onClick={() => setIsDark(!isDark)} className="fixed bottom-32 right-8 z-[110] p-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl">
         {isDark ? <Sun className="text-stark-gold" /> : <Moon className="text-stark-red" />}
       </button>
 
-      {/* EHA CHAT WIDGET */}
       <div className="fixed bottom-8 right-8 z-[110]">
         <AnimatePresence>
           {isEhaOpen && (
@@ -241,12 +159,12 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-        <button onClick={() => setIsEhaOpen(!isEhaOpen)} className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all ${isDark ? 'bg-stark-cyan shadow-stark-cyan/50' : 'bg-stark-red shadow-stark-red/50'}`}>
+        <button onClick={() => setIsEhaOpen(!isEhaOpen)} className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl ${isDark ? 'bg-stark-cyan' : 'bg-stark-red'}`}>
           <MessageSquare className={isDark ? 'text-black' : 'text-white'} size={28} />
         </button>
       </div>
 
-      {/* 1. HERO */}
+      {/* HERO */}
       <section className="relative h-screen flex flex-col items-center justify-center p-6 text-center">
         <ArcReactor isDark={isDark} />
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
@@ -263,22 +181,18 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. ABOUT (IDENTITY PROTOCOL) */}
+      {/* ABOUT */}
       <section id="about" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-center">
           <div className="relative group">
             <div className={`absolute -inset-6 border border-dashed animate-pulse pointer-events-none rounded-xl ${isDark ? 'border-stark-cyan/30' : 'border-stark-red/30'}`} />
-            <img src="/arpita.jpeg" alt="Arpita Mishra" className={`w-full transition-all duration-1000 rounded-xl shadow-2xl ${isDark ? 'grayscale hover:grayscale-0' : 'hover:scale-[1.02]'}`} />
-            <div className={`absolute top-6 left-6 px-4 py-2 font-mono text-[10px] uppercase backdrop-blur-xl border rounded-md ${isDark ? 'bg-black/60 border-stark-cyan/40 text-stark-cyan' : 'bg-white/60 border-stark-red/40 text-stark-red'}`}>BIO_SCAN: A. Mishra</div>
+            <img src="/arpita.jpg" alt="Arpita Mishra" className={`w-full transition-all duration-1000 rounded-xl shadow-2xl ${isDark ? 'grayscale hover:grayscale-0' : 'hover:scale-[1.02]'}`} />
           </div>
-          <div className="space-y-8">
-            <h3 className={`font-mono text-sm tracking-widest uppercase flex items-center gap-2 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><User size={16} /> Identity Protocol</h3>
+          <div className="space-y-8 text-xl font-light leading-relaxed">
             <h4 className="text-5xl font-black uppercase tracking-tighter leading-tight">The Visionary Architect</h4>
-            <div className={`space-y-6 text-xl font-light leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              <p className="italic font-bold text-2xl">"Innovation isn't just about code; it's about building armor for intelligence."</p>
-              <p>{MAINFRAME.profile.summary}</p>
-              <p>Inspired by the relentless innovation of the Stark Legacy, I specialize in building **Intelligent Armor for Data**. Whether it's grounding LLMs with **GitaRAG** or sub-second biometrics with **IntelliCampus**, I build missions that focus on reliability and precision.</p>
-            </div>
+            <p className="italic font-bold text-2xl">"Innovation isn't just about code; it's about building armor for intelligence."</p>
+            <p>{MAINFRAME.profile.summary}</p>
+            <p>Inspired by the relentless innovation of the Stark Legacy, I specialize in building Intelligent Armor for Data. Whether it's grounding LLMs with GitaRAG or sub-second biometrics with IntelliCampus, my focus is always on reliability and precision.</p>
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10">
               <div><p className={`text-4xl font-black ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>20+</p><p className="text-[10px] uppercase font-mono tracking-widest opacity-60">Repos</p></div>
               <div><p className={`text-4xl font-black ${isDark ? 'text-stark-gold' : 'text-amber-500'}`}>8.11</p><p className="text-[10px] uppercase font-mono tracking-widest opacity-60">CGPA</p></div>
@@ -288,13 +202,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SKILLS (ARMOR SPECS) */}
+      {/* SKILLS */}
       <section id="specs" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
         <h4 className="text-4xl font-black text-center uppercase mb-16 tracking-tighter">Armor Specifications</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {MAINFRAME.skills.map((cat, i) => (
-            <div key={i} className={`p-8 border rounded-xl transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-cyan/30' : 'bg-white border-gray-200 hover:shadow-2xl hover:border-stark-red/30'}`}>
-              <div className={`flex items-center gap-4 mb-8 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{cat.icon}<span className={`text-xs font-black uppercase tracking-widest ${isDark ? 'text-white' : 'text-gray-900'}`}>{cat.title}</span></div>
+            <div key={i} className={`p-10 border rounded-xl transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-cyan/30' : 'bg-white border-gray-200 hover:shadow-2xl hover:border-stark-red/30'}`}>
+              <div className={`flex items-center gap-4 mb-8 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{cat.icon}<span className="text-xs font-black uppercase tracking-widest">{cat.title}</span></div>
               <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map(s => <span key={s} className={`px-3 py-1.5 text-[10px] font-mono rounded-md ${isDark ? 'bg-white/5 text-gray-400 group-hover:text-stark-cyan' : 'bg-gray-100 text-gray-600 group-hover:text-stark-red'}`}>{s}</span>)}
               </div>
@@ -303,104 +217,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. EXPERIENCE (OPERATIONAL HISTORY) */}
+      {/* EXPERIENCE */}
       <section id="history" className={`py-24 px-6 border-y border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
-        <div className="max-w-5xl mx-auto">
-          <h4 className="text-4xl font-black uppercase text-center mb-16 tracking-tighter leading-none">Operational History</h4>
-          <div className="space-y-12">
-            {MAINFRAME.experience.map((exp, i) => (
-              <div key={i} className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr] gap-8 group">
-                <div className={`font-mono border-t-2 pt-4 ${isDark ? 'text-stark-red border-stark-red/30' : 'text-stark-red border-stark-red/60'}`}>
-                  <span className="text-xl font-black tracking-tighter">{exp.date}</span>
-                  {exp.link && <a href={exp.link} target="_blank" className="flex items-center gap-1 text-[10px] mt-3 underline italic"><FileCheck size={14} /> VERIFY_LINK</a>}
-                </div>
-                <div className="border-l border-white/10 pl-8 pb-8">
-                  <h5 className="text-2xl font-black uppercase mb-1 group-hover:text-stark-cyan transition-colors">{exp.role}</h5>
-                  <h6 className={`font-mono text-sm mb-4 uppercase tracking-widest ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{exp.company}</h6>
-                  <p className={`text-base font-light italic leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>"{exp.desc}"</p>
-                </div>
+        <div className="max-w-5xl mx-auto space-y-12">
+          <h4 className="text-4xl font-black uppercase text-center mb-16 tracking-tighter">Operational History</h4>
+          {MAINFRAME.experience.map((exp, i) => (
+            <div key={i} className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr] gap-8 group">
+              <div className={`font-mono border-t-2 pt-4 ${isDark ? 'text-stark-red border-stark-red/30' : 'text-stark-red border-stark-red/60'}`}>
+                <span className="text-xl font-black tracking-tighter">{exp.date}</span>
+                {exp.link && <a href={exp.link} target="_blank" className="flex items-center gap-1 text-[10px] mt-3 underline italic"><FileCheck size={14} /> VERIFY</a>}
               </div>
+              <div className="border-l border-white/10 pl-8 pb-8">
+                <h5 className="text-2xl font-black uppercase mb-1 group-hover:text-stark-cyan transition-colors">{exp.role}</h5>
+                <h6 className={`font-mono text-sm mb-4 uppercase tracking-widest ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{exp.company}</h6>
+                <p className={`text-base font-light italic leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>"{exp.desc}"</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section id="missions" className="py-24 px-6 max-w-7xl mx-auto">
+        <h4 className="text-4xl font-black text-center uppercase mb-16 tracking-tighter leading-none">Tactical Archives</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {MAINFRAME.projects.map((p, i) => (
+            <div key={i} className={`group relative border p-12 flex flex-col h-full transition-all rounded-xl ${isDark ? 'bg-stark-dark border-white/10 hover:border-stark-cyan/40 shadow-2xl' : 'bg-white border-gray-200 hover:shadow-2xl hover:border-stark-red/40'}`}>
+              <div className={`absolute top-0 right-0 p-10 opacity-10 group-hover:opacity-100 transition-all duration-500 scale-150 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{p.icon}</div>
+              <span className={`font-mono text-[9px] mb-4 uppercase tracking-[0.4em] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Log: Mission_{100+i}</span>
+              <h5 className="text-2xl font-black uppercase mb-4 tracking-tighter group-hover:text-stark-cyan transition-colors">{p.title}</h5>
+              <p className="text-sm font-light leading-relaxed mb-10 flex-1 italic opacity-70 group-hover:opacity-100 italic">"{p.description}"</p>
+              <div className="flex flex-wrap gap-2 mb-10">
+                {p.tags.map(t => <span key={t} className={`text-[9px] px-2.5 py-1 border font-mono rounded ${isDark ? 'border-white/10 bg-white/5 text-gray-500' : 'border-gray-100 bg-gray-50 text-gray-500'}`}>{t}</span>)}
+              </div>
+              <div className="flex gap-8 border-t border-white/10 pt-8 mt-auto">
+                <a href={p.github} target="_blank" className="hover:text-stark-cyan transition-transform hover:scale-125"><Github size={22} /></a>
+                {p.demo && <a href={p.demo} target="_blank" className="hover:text-stark-cyan transition-transform hover:scale-125"><Globe size={22} /></a>}
+                <a href={p.medium} target="_blank" className="hover:text-stark-gold transition-transform hover:scale-125"><BookOpen size={22} /></a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-24 text-center p-16 border-2 border-dashed border-white/10 rounded-2xl group hover:border-stark-cyan/40 transition-all">
+          <h4 className="text-3xl font-black mb-4 uppercase tracking-tight">Access Global Mainframe</h4>
+          <p className="text-gray-500 mb-10 max-w-lg mx-auto font-mono text-sm uppercase tracking-widest">Experimental Nexus // 20+ Active Repositories</p>
+          <a href={MAINFRAME.contact.github} target="_blank" className={`px-10 py-5 font-black uppercase rounded-lg transition-all ${isDark ? 'bg-white text-black hover:bg-stark-cyan' : 'bg-stark-red text-white hover:bg-red-500 shadow-xl'}`}>Open GitHub Database</a>
+        </div>
+      </section>
+
+      {/* ACHIEVEMENTS & CERTIFICATES */}
+      <section className={`py-24 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="space-y-6">
+            <h4 className="text-3xl font-black uppercase mb-12 flex items-center gap-3"><Trophy className="text-stark-gold" /> Commendations</h4>
+            {MAINFRAME.achievements.map((ach, i) => (
+              <div key={i} className={`p-8 border-l-8 rounded-xl ${isDark ? 'bg-white/5 border-stark-gold' : 'bg-white border-amber-500 shadow-xl'}`}>
+                <h5 className="text-xl font-black uppercase mb-1">{ach.title}</h5>
+                <p className={`text-base italic ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>"{ach.desc}"</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <h4 className="text-3xl font-black uppercase mb-12 col-span-full flex items-center gap-3"><Award className={isDark ? 'text-stark-cyan' : 'text-stark-red'} /> System Upgrades</h4>
+            {MAINFRAME.certificates.map((cert, i) => (
+              <a key={i} href={cert.link} target="_blank" className={`p-6 border rounded-xl transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50' : 'bg-white border-gray-200 hover:shadow-2xl'}`}>
+                <h5 className={`text-[9px] font-mono uppercase mb-2 ${isDark ? 'text-stark-gold' : 'text-amber-600'}`}>{cert.issuer}</h5>
+                <p className="text-[11px] font-black uppercase leading-tight">{cert.title}</p>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. PROJECTS (TACTICAL ARCHIVES) */}
-      <section id="missions" className="py-24 px-6 max-w-7xl mx-auto">
-        <h4 className="text-4xl font-black text-center uppercase mb-16 tracking-tighter leading-none">Tactical Archives</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {MAINFRAME.projects.map((p, i) => (
-            <div key={i} className={`group relative border p-10 flex flex-col h-full transition-all rounded-xl ${isDark ? 'bg-stark-dark border-white/10 hover:border-stark-cyan/40 shadow-2xl' : 'bg-white border-gray-200 hover:shadow-2xl hover:border-stark-red/40'}`}>
-              <div className={`absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-100 transition-all duration-500 scale-150 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{p.icon}</div>
-              <span className={`font-mono text-[9px] mb-4 uppercase tracking-[0.4em] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Log: Mission_{100+i}</span>
-              <h5 className="text-2xl font-black uppercase mb-3 tracking-tighter group-hover:text-stark-cyan transition-colors leading-tight">{p.title}</h5>
-              <p className="text-xs font-light leading-relaxed mb-8 flex-1 italic opacity-70 group-hover:opacity-100">"{p.description}"</p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {p.tags.map(t => <span key={t} className={`text-[8px] px-2 py-0.5 border font-mono rounded ${isDark ? 'border-white/10 bg-white/5 text-gray-500' : 'border-gray-100 bg-gray-50 text-gray-500'}`}>{t}</span>)}
-              </div>
-              <div className="flex gap-6 border-t border-white/10 pt-6 mt-auto">
-                <a href={p.github} target="_blank" className="hover:text-stark-cyan transition-transform hover:scale-125"><Github size={20} /></a>
-                {p.demo && <a href={p.demo} target="_blank" className="hover:text-stark-cyan transition-transform hover:scale-125"><Globe size={20} /></a>}
-                <a href={p.medium} target="_blank" className="hover:text-stark-gold transition-transform hover:scale-125"><BookOpen size={20} /></a>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-16 text-center p-12 border-2 border-dashed border-white/10 rounded-2xl group hover:border-stark-cyan/40 transition-all">
-          <h4 className="text-2xl font-black mb-4 uppercase tracking-tight">Access Global Mainframe</h4>
-          <p className="text-gray-500 mb-8 max-w-lg mx-auto font-mono text-xs uppercase tracking-widest">Experimental Nexus // 20+ Active Repositories</p>
-          <a href={MAINFRAME.contact.github} target="_blank" className={`px-8 py-4 font-black uppercase rounded-lg transition-all ${isDark ? 'bg-white text-black hover:bg-stark-cyan' : 'bg-stark-red text-white hover:bg-red-500 shadow-xl'}`}>Open GitHub Database</a>
-        </div>
-      </section>
-
-      {/* 6. ACHIEVEMENTS & CERTIFICATES (MERGED FOR TIGHTNESS) */}
-      <section className={`py-24 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h4 className="text-3xl font-black uppercase mb-12 flex items-center gap-3"><Trophy className="text-stark-gold" /> Commendations</h4>
-              <div className="space-y-6">
-                {MAINFRAME.achievements.map((ach, i) => (
-                  <div key={i} className={`p-8 border-l-8 rounded-xl ${isDark ? 'bg-white/5 border-stark-gold' : 'bg-white border-amber-500 shadow-xl'}`}>
-                    <h5 className="text-xl font-black uppercase mb-1">{ach.title}</h5>
-                    <p className={`text-base italic ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>"{ach.desc}"</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-3xl font-black uppercase mb-12 flex items-center gap-3"><Award className={isDark ? 'text-stark-cyan' : 'text-stark-red'} /> System Upgrades</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {MAINFRAME.certificates.map((cert, i) => (
-                  <a key={i} href={cert.link} target="_blank" className={`p-6 border rounded-xl transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50' : 'bg-white border-gray-200 hover:shadow-2xl'}`}>
-                    <h5 className={`text-[9px] font-mono uppercase mb-2 ${isDark ? 'text-stark-gold' : 'text-amber-600'}`}>{cert.issuer}</h5>
-                    <p className="text-[11px] font-black uppercase leading-tight">{cert.title}</p>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. ACADEMIC MAINFRAME */}
+      {/* EDUCATION */}
       <section id="education" className={`py-24 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-200/50'}`}>
         <div className="max-w-6xl mx-auto">
           <h4 className="text-4xl font-black uppercase text-center mb-16 tracking-tighter flex items-center justify-center gap-4"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} /> Academic Database</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {MAINFRAME.education.map((edu, i) => (
-              <div key={i} className={`p-10 border-t-8 rounded-xl text-center ${isDark ? `bg-white/5 border-stark-cyan` : `bg-white shadow-2xl border-stark-red`}`}>
-                <h5 className="text-xl font-black uppercase mb-1">{edu.title}</h5>
+              <div key={i} className={`p-12 border-t-8 rounded-xl text-center ${isDark ? `bg-white/5 border-stark-cyan` : `bg-white shadow-2xl border-stark-red`}`}>
+                <h5 className="text-2xl font-black uppercase mb-2">{edu.title}</h5>
                 <p className="text-[10px] font-mono mb-4 opacity-60 tracking-widest">{edu.school} // {edu.date}</p>
-                <p className={`text-3xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{edu.score}</p>
-                <p className="text-[10px] mt-4 opacity-50 uppercase">{edu.detail}</p>
+                <p className={`text-4xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{edu.score}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 8. NEXUS (CONTACTS) */}
+      {/* NEXUS */}
       <section id="nexus" className="py-24 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto text-center">
           <h4 className="text-4xl font-black uppercase mb-16 tracking-tighter flex items-center justify-center gap-4"><Target className="text-stark-red w-10 h-10" /> Establishing Uplink</h4>
