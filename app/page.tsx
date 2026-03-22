@@ -250,7 +250,7 @@ export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
   const [chatInput, setChatInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Protocol Online. Neural links active." }]);
+  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "EHA Protocol Online. All systems operational. How can I assist you?" }]);
   const [isEhaOpen, setIsEhaOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   
@@ -301,7 +301,7 @@ export default function Home() {
           <motion.div initial={{ x: -350 }} animate={{ x: 0 }} exit={{ x: -350 }} className={`fixed top-0 left-0 h-full w-80 z-[210] border-r backdrop-blur-3xl p-12 flex flex-col shadow-2xl ${isDark ? 'bg-black/95 border-white/10' : 'bg-white/95 border-gray-200 text-gray-900'}`}>
             <button onClick={() => setIsSidebarOpen(false)} className="self-end mb-12 opacity-50"><X /></button>
             <div className="space-y-10">
-              {['about', 'specs', 'history', 'missions', 'nexus'].map((item) => (
+              {['About', 'Tech Stack', 'History', 'Missions', 'Connect'].map((item) => (
                 <button key={item} onClick={() => scrollTo(item)} className="block text-xl font-black uppercase tracking-[0.4em] hover:text-stark-cyan transition-all hover:translate-x-4">{item}</button>
               ))}
             </div>
@@ -539,10 +539,10 @@ Think less "black-box AI" — more "controlled, production-ready intelligence."<
 </p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10">
             {[
-              { icon: <Mail />, label: "Email", link: `mailto:${PROFILE.email}`, color: "hover:bg-red-500" },
+              { icon: <Mail />, label: "Email", link: `mailto:${PROFILE.email}`, color: "hover:bg-red-500" }, 
               { icon: <Linkedin />, label: "LinkedIn", link: "https://linkedin.com/in/arpita2755", color: "hover:bg-blue-600" },
               { icon: <Github />, label: "GitHub", link: "https://github.com/Arpita-2755", color: "hover:bg-gray-700" },
-              { icon: <Code />, label: "LeetCode", link: "https://leetcode.com/u/Arpita_2755/", color: "hover:bg-orange-500" },
+              { icon: <Code />, label: "LeetCode", link: "https://leetcode.com/u/Arpita-27/", color: "hover:bg-orange-500" },
               { icon: <BookOpen />, label: "Medium", link: "https://medium.com/@arpitamishra2755", color: "hover:bg-green-600" },
               { icon: <Twitter />, label: "X", link: "https://x.com/ArpitaM_2755", color: "hover:bg-sky-500" },
               { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" },
