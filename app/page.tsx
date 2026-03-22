@@ -57,7 +57,7 @@ const MAINFRAME = {
   ]
 };
 
-// --- EHA'S BRAIN (Fixed & Expanded Knowledge Base) ---
+// --- EHA'S BRAIN (Knowledge Base) ---
 const EHA_KB = [
   { keywords: ["cgpa", "grade", "score", "marks", "10", "12"], response: "Arpita has an 8.11 CGPA at LPU (Dean's List). Her school records show 93.8% in 10th grade and 84.8% in 12th grade." },
   { keywords: ["routemate", "bus", "reservation"], response: "RouteMate is Arpita's full-stack reservation system. It uses a queue-based seat allocation (deque) to prevent race conditions and includes secure session management." },
@@ -104,7 +104,10 @@ export default function Home() {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [chatHistory]);
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <main className={`relative min-h-screen transition-all duration-500 ${isDark ? 'bg-[#020617] text-white' : 'bg-gray-50 text-gray-900'} selection:bg-stark-cyan overflow-x-hidden font-sans`}>
@@ -120,7 +123,7 @@ export default function Home() {
           {isEhaOpen && (
             <motion.div initial={{ opacity: 0, scale: 0.8, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.8, y: 20 }} className={`mb-4 w-80 h-[480px] border backdrop-blur-3xl rounded-xl flex flex-col shadow-2xl ${isDark ? 'bg-black/95 border-stark-cyan/40' : 'bg-white/95 border-stark-red/40'}`}>
               <div className={`p-4 border-b flex justify-between items-center ${isDark ? 'bg-stark-cyan/10 border-white/10' : 'bg-stark-red/10 border-gray-200'}`}>
-                <span className={`text-[10px] font-mono tracking-[0.3em] uppercase flex items-center gap-2 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><TerminalIcon size={14} /> Eha_Neural_Link</span>
+                <span className={`text-[10px] font-mono tracking-[0.3em] uppercase flex items-center gap-2 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><Terminal size={14} /> Eha_Neural_Link</span>
                 <button onClick={() => setIsEhaOpen(false)} className="opacity-40 font-bold">×</button>
               </div>
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-4 scrollbar-hide">
@@ -164,7 +167,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20 items-center">
           <div className="relative group">
             <div className={`absolute -inset-6 border border-dashed animate-pulse pointer-events-none rounded-xl ${isDark ? 'border-stark-cyan/30' : 'border-stark-red/30'}`} />
-            <img src="/arpita.jpg" alt="Arpita Mishra" className={`w-full transition-all duration-1000 rounded-xl shadow-2xl ${isDark ? 'grayscale hover:grayscale-0' : 'hover:scale-[1.02]'}`} />
+            <img src="/arpita.jpeg" alt="Arpita Mishra" className={`w-full transition-all duration-1000 rounded-xl shadow-2xl ${isDark ? 'grayscale hover:grayscale-0' : 'hover:scale-[1.02]'}`} />
             <div className={`absolute top-6 left-6 px-4 py-2 font-mono text-[10px] uppercase backdrop-blur-xl border rounded-md ${isDark ? 'bg-black/60 border-stark-cyan/40 text-stark-cyan' : 'bg-white/60 border-stark-red/40 text-stark-red'}`}>BIO_SCAN: A. Mishra</div>
           </div>
           <div className="space-y-10">
