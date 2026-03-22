@@ -544,7 +544,7 @@ Think less "black-box AI" — more "controlled, production-ready intelligence."<
               { icon: <Github />, label: "GitHub", link: "https://github.com/Arpita-2755", color: "hover:bg-gray-700" },
               { icon: <Code />, label: "LeetCode", link: "https://leetcode.com/u/Arpita-27/", color: "hover:bg-orange-500" },
               { icon: <BookOpen />, label: "Medium", link: "https://medium.com/@arpitamishra2755", color: "hover:bg-green-600" },
-              { icon: <Twitter />, label: "X", link: "https://x.com/ArpitaM_2755", color: "hover:bg-sky-500" },
+              { icon: <Twitter />, label: "X", link: "https://x.com/Arpita2109", color: "hover:bg-sky-500" },
               { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" },
             ].map((s, i) => (
               <a key={i} href={s.link} target="_blank" className={`flex flex-col items-center gap-8 p-12 border rounded-[2.5rem] transition-all bg-white/[0.02] border-white/10 hover:bg-white/5 group shadow-2xl`}>
