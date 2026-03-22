@@ -75,7 +75,7 @@ const EHA_KB = [
 
   // 🧠 IDENTITY
   {
-    keywords: ["who", "arpita", "mishra", "about", "introduce"],
+    keywords: ["who", "arpita", "mishra"],
     response: "Arpita Mishra is a Machine Learning Engineer specializing in retrieval systems, representation learning, and reliability-focused AI system design. She builds end-to-end ML pipelines involving embeddings, vector search, clustering, and production deployment. Her work focuses on grounded AI systems — not just accurate, but dependable and interpretable."
   },
 
@@ -364,7 +364,7 @@ export default function Home() {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>INITIATING SYSTEM: ARPITA MISHRA // ML SYSTEMS ENGINEER</h2>
+          <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>INITIATING SYSTEM: ML SYSTEMS ENGINEER</h2>
           <h1 className={`text-7xl md:text-[9rem] font-black tracking-tighter leading-none mb-12 uppercase select-none transition-all duration-1000 ${isDark ? 'text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] animate-pulse' : 'text-gray-900'}`}>
             ARPITA <span className={isDark ? 'text-stark-red drop-shadow-[0_0_20px_#ef4444]' : 'text-stark-gold'}>MISHRA</span>
           </h1>
@@ -516,7 +516,7 @@ Think less "black-box AI" — more "controlled, production-ready intelligence."<
             {EDUCATION.map((edu, i) => (
               <TiltCard key={i} className={`p-16 border-t-[14px] rounded-[3rem] text-center transition-all ${isDark ? `bg-white/5 border-stark-cyan hover:bg-white/[0.08] shadow-[0_0_40px_rgba(34,211,238,0.1)]` : `bg-white shadow-2xl border-stark-red`}`}>
                 <h5 className="text-3xl font-black uppercase mb-2 tracking-tighter">{edu.title}</h5>
-                <p className="text-xs font-mono mb-8 opacity-50 tracking-[0.4em]">{edu.school} // {edu.date}</p>
+                <p className="text-xs font-mono mb-8 opacity-50 tracking-[0.4em]">{edu.school} | {edu.date}</p>
                 <p className={`text-6xl font-black mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>{edu.score}</p>
                 <p className={`text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border inline-block ${isDark ? 'border-stark-cyan text-stark-cyan' : 'border-stark-red text-stark-red'}`}>{edu.detail}</p>
               </TiltCard>
@@ -529,7 +529,14 @@ Think less "black-box AI" — more "controlled, production-ready intelligence."<
       <section id="nexus" className="py-32 px-6 border-t border-white/5 bg-black">
         <div className="max-w-6xl mx-auto text-center">
           <h4 className="text-6xl font-black uppercase mb-24 tracking-tighter flex items-center justify-center gap-10"><Target className="text-stark-red w-16 h-16" /> Establish Uplink</h4>
-          <p>Open channels for collaboration, internships, and impactful engineering work.</p>
+          <p className="max-w-2xl mx-auto text-sm font-mono uppercase tracking-widest opacity-60 leading-relaxed">
+  Secure channels available for collaboration, high-impact engineering roles, and system-level problem solving.  
+  <br className="hidden md:block" />
+  If you're building something real — initiate contact.
+</p>
+<p className="text-[10px] font-mono uppercase tracking-[0.4em] opacity-30 mt-6">
+  STATUS: AVAILABLE FOR INTERNSHIPS
+</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10">
             {[
               { icon: <Mail />, label: "Email", link: `mailto:${PROFILE.email}`, color: "hover:bg-red-500" },
@@ -550,7 +557,7 @@ Think less "black-box AI" — more "controlled, production-ready intelligence."<
       </section>
 
       <footer className="py-20 text-center text-gray-500 font-mono text-[10px] uppercase tracking-[1.2em] border-t border-white/5 opacity-50">
-        Arpita Mishra // Eha Intelligence v5.0 // © 2024 All Rights Reserved
+        Arpita Mishra | Eha Intelligence v5.0 | © 2026 All Rights Reserved
       </footer>
       
       <style jsx global>{`
