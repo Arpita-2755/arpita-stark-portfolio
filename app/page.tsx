@@ -5,47 +5,48 @@ import {
   Zap, ExternalLink, Github, Database, Brain, Eye, Cpu, MessageSquare, 
   Bus, Globe, BookOpen, Code, Server, Shield, Briefcase, GraduationCap, 
   Award, Linkedin, Mail, Trophy, Activity, Terminal, ChevronRight, FileCheck,
-  Twitter, Target, User, Send, Phone, Sun, Moon, Layers, Menu, X, Scan, Loader2
+  Twitter, Target, User, Send, Phone, Sun, Moon, Layers, Menu, X, Scan
 } from "lucide-react";
 
-// --- DATA REPOSITORY (UNTOUCHED) ---
+// --- THE IMMUTABLE DATA MAINFRAME ---
 const PROFILE = {
   name: "Arpita Mishra",
   summary: "Machine Learning Engineer specializing in retrieval systems, representation learning, and applied AI system design. Experienced in building end-to-end ML pipelines spanning embedding generation, vector search optimization, and production deployment.",
-  cgpa: "8.11 (Dean's List)",
-  matric: "93.8%",
-  inter: "84.8%",
+  cgpa: "8.11 (Dean's List - Top 15%)",
+  matric: "93.8% (Lions English School)",
+  inter: "84.8% (Lions English School)",
   phone: "+91-8140006314",
-  email: "arpitamishra2755@gmail.com"
+  email: "arpitamishra2755@gmail.com",
+  location: "Silvassa, D&NH, India"
 };
 
 const SKILLS = [
   { title: "Core Processors", icon: <Code className="text-stark-red" />, skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"] },
   { title: "Neural & GenAI", icon: <Brain className="text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness", "TF-IDF"] },
-  { title: "Targeting (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
+  { title: "Targeting (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Optimization", "RetinaFace", "FaceNet"] },
   { title: "Cloud & Support", icon: <Server className="text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design"] }
 ];
 
 const PROJECTS = [
-  { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating generative hallucination using 700+ verse embeddings and FAISS search (0.45 threshold).", tags: ["FAISS", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Database /> },
-  { title: "Slot Recommender", subtitle: "Healthcare NLP Intent", description: "Converted free-text queries into healthcare slots using synthetic datasets, TF-IDF, and Logistic Regression (80%+ intent accuracy).", tags: ["Scikit-learn", "NLP"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Activity /> },
-  { title: "PromptGuard", subtitle: "LLM Robustness", description: "Deterministic prompt-mutation engine for detecting behavioral drift and instability in LLMs without ground-truth supervision.", tags: ["HuggingFace", "Python"], github: "https://github.com/Arpita-2755/PromptGuard", demo: "https://promptguard-llm-robustness.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Shield /> },
-  { title: "IntelliCampus", subtitle: "AI Smart Attendance", description: "Sub-second face identification using RetinaFace and FaceNet. Optimized FAISS search with calibrated thresholding (1.0).", tags: ["RetinaFace", "Flask"], github: "https://github.com/Arpita-2755/IntelliCampus", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Eye /> },
-  { title: "RouteMate", subtitle: "Bus Reservation", description: "Full-stack reservation platform using queue-based allocation (deque) to prevent race conditions. Managed via Git CI/CD.", tags: ["Flask", "MySQL"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Bus /> },
-  { title: "Speech Analyzer", subtitle: "Unsupervised ML", description: "NLP clustering pipeline discovering latent semantic speech patterns via contextual MiniLM embeddings and UMAP reduction.", tags: ["UMAP", "KMeans"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <MessageSquare /> },
-  { title: "Face Verify", subtitle: "DL Siamese Network", description: "Biometric face verification pipeline with 100% recall on evaluation pairs using Siamese-style FaceNet embeddings.", tags: ["TensorFlow", "FaceNet"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Cpu /> }
+  { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating generative hallucination through semantic grounding in 700+ verse embeddings using FAISS L2-normalized search with 0.45 threshold and mean-confidence calibration.", tags: ["FAISS", "MiniLM", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Database /> },
+  { title: "Slot Recommender", subtitle: "Healthcare NLP Intent", description: "Converted free-text queries into healthcare appointment slots. Used synthetic datasets, TF-IDF feature extraction, and Logistic Regression to achieve 80%+ intent classification accuracy.", tags: ["Scikit-learn", "TF-IDF", "NLP"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Activity /> },
+  { title: "PromptGuard", subtitle: "LLM Robustness", description: "Deterministic prompt-mutation engine for detecting behavioral drift and response instability without ground-truth supervision. Enforced inference determinism via temperature control.", tags: ["distilgpt2", "HuggingFace", "Python"], github: "https://github.com/Arpita-2755/PromptGuard", demo: "https://promptguard-llm-robustness.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Shield /> },
+  { title: "IntelliCampus", subtitle: "AI Smart Attendance", description: "Sub-second face identification using RetinaFace and FaceNet. Features calibrated similarity threshold (1.0) and modular AI engine decoupled from Flask routes for index rebuilding.", tags: ["RetinaFace", "FaceNet", "Flask"], github: "https://github.com/Arpita-2755/IntelliCampus", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Eye /> },
+  { title: "RouteMate", subtitle: "Bus Reservation", description: "Full-stack reservation platform using queue-based seat allocation (deque) to prevent race conditions. Managed via structured Git CI/CD and secure session management.", tags: ["Flask", "MySQL", "System Design"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Bus /> },
+  { title: "Speech Analyzer", subtitle: "Unsupervised ML", description: "NLP clustering pipeline discovering latent semantic speech patterns via contextual MiniLM embeddings and UMAP reduction (384 to 2) followed by KMeans (k=3).", tags: ["KMeans", "UMAP", "NLP"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <MessageSquare /> },
+  { title: "Face Verify", subtitle: "DL Siamese Network", description: "Biometric face verification pipeline using frozen FaceNet embeddings and custom Euclidean similarity layer. Achieved 100% recall on fixed evaluation pairs.", tags: ["TensorFlow", "Keras", "FaceNet"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Cpu /> }
 ];
 
 const EXPERIENCE = [
-  { role: "Data Analytics Participant", company: "Deloitte Australia", date: "July 2025", desc: "Analyzed transactional datasets to identify anomaly patterns.", link: "https://forage-link.com" },
-  { role: "Community Service Intern", company: "Indian Red Cross Society", date: "June 2024 - July 2024", desc: "Delivered adaptive STEM instruction for students with disabilities.", link: null },
-  { role: "Technical Member", company: "GitHub Students Club, LPU", date: "Sept 2024 - Present", desc: "Supported recruitment of 300+ members; conducted Git workshops.", link: null },
-  { role: "Technical Team Member", company: "Coding Blocks (DSO), LPU", date: "2023 - 2024", desc: "Competed in 36-hour ByteBash hackathon.", link: null }
+  { role: "Data Analytics Participant", company: "Deloitte Australia", date: "July 2025", desc: "Analyzed transactional datasets to identify anomaly patterns and modeled business trends.", link: "https://forage-link.com" },
+  { role: "Community Service Intern", company: "Indian Red Cross Society", date: "June 2024 - July 2024", desc: "Delivered adaptive STEM instruction for students with disabilities and applied inclusive teaching strategies.", link: null },
+  { role: "Technical Member", company: "GitHub Students Club, LPU", date: "Sept 2024 - Present", desc: "Supported recruitment of 300+ members; conducted Git/GitHub workshops.", link: null },
+  { role: "Technical Team Member", company: "Coding Blocks (DSO), LPU", date: "2023 - 2024", desc: "Competed in 36-hour ByteBash coding hackathon; coordinated full-stack workshops.", link: null }
 ];
 
 const ACHIEVEMENTS = [
-  { title: "Team Leader - SIH 2024", desc: "Led 6-member team to build 'Aqua Quest' web game using HTML/CSS/JS + Firebase." },
-  { title: "1st Runner-Up - Speak & Spark", desc: "LPU CPE Creativity Challenge prototype under 15-minute constraint." }
+  { title: "Team Leader - SIH 2024", desc: "Led 6-member team to build 'Aqua Quest', a groundwater conservation web game using HTML/CSS/JS + Firebase." },
+  { title: "1st Runner-Up - Speak & Spark", desc: "LPU CPE Creativity Challenge prototype under 15-minute constraint demonstrating rapid execution." }
 ];
 
 const CERTIFICATES = [
@@ -56,7 +57,7 @@ const CERTIFICATES = [
 ];
 
 const EDUCATION = [
-  { title: "B.Tech CSE", school: "LPU", score: "8.11 CGPA", date: "2023 - 2027", detail: "Dean's List" },
+  { title: "B.Tech CSE", school: "LPU", score: "8.11 CGPA", date: "2023 - 2027", detail: "Dean's List - Top 15%" },
   { title: "Intermediate", school: "Lions School", score: "84.8%", date: "2023", detail: "Distinction" },
   { title: "Matriculation", school: "Lions School", score: "93.8%", date: "2021", detail: "Distinction" }
 ];
@@ -71,17 +72,19 @@ const CONTACT_LINKS = [
   { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" }
 ];
 
-// --- EHA'S KNOWLEDGE BASE (UNTOUCHED) ---
+// --- EHA'S BRAIN (Full OCR Knowledge Integration) ---
 const EHA_KB = [
-  { keywords: ["cgpa", "marks", "10th", "12th"], response: "Arpita has an 8.11 CGPA (Dean's List). Marks: 93.8% (10th) and 84.8% (12th)." },
-  { keywords: ["slot", "healthcare"], response: "The Slot Recommender uses synthetic datasets and TF-IDF with Logistic Regression for 80%+ intent accuracy." },
-  { keywords: ["routemate", "race"], response: "RouteMate prevents race conditions in bookings using a queue-based seat allocation system (deque)." },
-  { keywords: ["sih", "aqua"], response: "Arpita led SIH 2024 to build 'Aqua Quest'—a groundwater conservation game." },
-  { keywords: ["skill", "stack"], response: "Processors: Python, C++, SQL. Expertise: RAG, CV, GenAI." },
-  { keywords: ["who", "arpita"], response: "Arpita Mishra is an ML Engineer and Visionary Architect running on the MARK-85 protocol." }
+  { keywords: ["cgpa", "grade", "score", "marks", "10", "12", "school", "lpu"], response: "Arpita holds an 8.11 CGPA at LPU (Top 15% of batch). Her school performance was distinguished with 93.8% in 10th and 84.8% in 12th at Lions English School." },
+  { keywords: ["routemate", "bus", "reservation", "deque", "race"], response: "RouteMate is a full-stack system built with Flask and MySQL. It uses a queue-based seat allocation system (deque) to prevent race conditions and ensures secure session management." },
+  { keywords: ["slot", "healthcare", "synthetic", "recommendation", "logistic"], response: "The Slot Recommender uses synthetic patient queries, TF-IDF feature extraction, and Logistic Regression for intent accuracy of 80%+. It employs a hierarchical strategy for appointment slot mapping." },
+  { keywords: ["gitarag", "embeddings", "0.45", "hallucination", "calib"], response: "GitaRAG uses 700+ verse embeddings and L2-normalized FAISS inner-product search with a 0.45 threshold and mean-confidence calibration to ensure extractive, grounded responses." },
+  { keywords: ["sih", "hackathon", "aqua", "quest"], response: "As Team Leader for SIH 2024, Arpita led a 6-member team to architect 'Aqua Quest', an educational game for groundwater conservation using HTML/CSS/JS and Firebase." },
+  { keywords: ["deloitte", "anomaly", "trends"], response: "During her Deloitte Virtual Experience, Arpita analyzed transactional datasets to identify anomaly patterns and modeled business trends using data analytics." },
+  { keywords: ["skill", "python", "stack", "know", "tools"], response: "Core Processors: Python, C++, SQL, Java. Neural Core: RAG, CV (RetinaFace/FaceNet), LLMs, TensorFlow, and Backend (Flask/Django/AWS)." },
+  { keywords: ["who", "arpita", "mishra", "about"], response: "Arpita Mishra is an ML Engineer and Visionary Architect specializing in reliability-driven AI. She operates on the MARK-85 protocol with a focus on RAG and Computer Vision." }
 ];
 
-// --- ADVANCED UI ENHANCEMENTS (NEW) ---
+// --- ADVANCED UI COMPONENTS ---
 
 const NeuralBackground = ({ isDark }: { isDark: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -89,16 +92,14 @@ const NeuralBackground = ({ isDark }: { isDark: boolean }) => {
     const canvas = canvasRef.current; if (!canvas) return;
     const ctx = canvas.getContext('2d'); if (!ctx) return;
     let particles: any[] = [];
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
+    let w = 0; let h = 0;
     const resize = () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; };
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize); resize();
     for (let i = 0; i < 85; i++) {
       particles.push({
         x: Math.random() * w, y: Math.random() * h,
         vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2,
-        pulse: Math.random() * 0.05
+        size: Math.random() * 2, pulse: Math.random() * 0.05
       });
     }
     const draw = () => {
@@ -108,9 +109,7 @@ const NeuralBackground = ({ isDark }: { isDark: boolean }) => {
       particles.forEach((p, i) => {
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > w) p.vx *= -1; if (p.y < 0 || p.y > h) p.vy *= -1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size + Math.sin(Date.now() * 0.002 + i) * 0.5, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.size + Math.sin(Date.now() * 0.002 + i) * 0.5, 0, Math.PI * 2); ctx.fill();
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j]; const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
           if (dist < 180) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
@@ -118,17 +117,22 @@ const NeuralBackground = ({ isDark }: { isDark: boolean }) => {
       });
       requestAnimationFrame(draw);
     };
-    draw();
-    return () => window.removeEventListener('resize', resize);
+    draw(); return () => window.removeEventListener('resize', resize);
   }, [isDark]);
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-60" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-50" />;
 };
 
 const HUDTerminal = ({ isDark }: { isDark: boolean }) => {
   const [logs, setLogs] = useState<string[]>([]);
-  const techStrings = ["INITIATING_RAG_CORE...", "UPLINK_STABLE", "FAISS_INDEX_REBUILT", "NEURAL_LINK_SYNCHRONIZED", "MARK-85_ONLINE", "SCANNING_REPOSITORIES", "DECRYPTING_BIOMETRICS...", "CGPA_VERIFIED: 8.11", "TRACING_NEURAL_PATH"];
+  const techStrings = [
+    "INITIATING_RAG_CORE...", "UPLINK_STABLE", "FAISS_INDEX_REBUILT", 
+    "NEURAL_LINK_SYNCHRONIZED", "MARK-85_ONLINE", "SCANNING_REPOSITORIES",
+    "DECRYPTING_BIOMETRICS...", "CGPA_VERIFIED: 8.11", "TRACING_NEURAL_PATH"
+  ];
   useEffect(() => {
-    const interval = setInterval(() => { setLogs(prev => [techStrings[Math.floor(Math.random() * techStrings.length)], ...prev].slice(0, 5)); }, 3500);
+    const interval = setInterval(() => {
+      setLogs(prev => [techStrings[Math.floor(Math.random() * techStrings.length)], ...prev].slice(0, 5));
+    }, 3500);
     return () => clearInterval(interval);
   }, []);
   return (
@@ -140,8 +144,8 @@ const HUDTerminal = ({ isDark }: { isDark: boolean }) => {
 
 const TiltCard = ({ children, className }: any) => {
   const x = useMotionValue(0); const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [10, -10]);
-  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
+  const rotateX = useTransform(y, [-100, 100], [8, -8]);
+  const rotateY = useTransform(x, [-100, 100], [-8, 8]);
   const springX = useSpring(rotateX); const springY = useSpring(rotateY);
   return (
     <motion.div 
@@ -150,7 +154,7 @@ const TiltCard = ({ children, className }: any) => {
       style={{ rotateX: springX, rotateY: springY, transformStyle: "preserve-3d" }}
       className={`relative overflow-hidden ${className}`}
     >
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/[0.05] to-white/0 -translate-x-full animate-[shimmer_5s_infinite] skew-x-12" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/[0.03] to-white/0 -translate-x-full animate-[shimmer_6s_infinite] skew-x-12" />
       {children}
     </motion.div>
   );
@@ -178,7 +182,7 @@ export default function Home() {
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
   const [chatInput, setChatInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Online. Neural link stable." }]);
+  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Intelligence Online. Ask me about Arpita's missions." }]);
   const [isEhaOpen, setIsEhaOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [text, setText] = useState("");
@@ -195,7 +199,7 @@ export default function Home() {
     const userMsg = chatInput.toLowerCase(); setChatInput("");
     setTimeout(() => {
       const match = EHA_KB.find(item => item.keywords.some(k => userMsg.includes(k)));
-      setChatHistory(prev => [...prev, { role: "eha", text: match ? match.response : "Segment not found. Check GitHub for full experimental logs." }]);
+      setChatHistory(prev => [...prev, { role: "eha", text: match ? match.response : "Data point not found. Check the GitHub mainframe for full experimental logs." }]);
     }, 450);
   };
 
@@ -204,9 +208,9 @@ export default function Home() {
     const interval = setInterval(() => {
       setScanProgress(p => {
         if (p >= 100) { clearInterval(interval); setTimeout(() => { setIsScanning(false); window.open('/Arpita_Mishra_CV.pdf', '_blank'); }, 500); return 100; }
-        return p + 5;
+        return p + 4;
       });
-    }, 100);
+    }, 80);
   };
 
   const scrollTo = (id: string) => { setIsSidebarOpen(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); };
@@ -217,7 +221,7 @@ export default function Home() {
       <NeuralBackground isDark={isDark} />
       <HUDTerminal isDark={isDark} />
 
-      {/* SIDEBAR NAVIGATION (UNTOUCHED) */}
+      {/* SIDEBAR NAVIGATION */}
       <button onClick={() => setIsSidebarOpen(true)} className="fixed top-8 left-8 z-[200] p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:scale-110 shadow-2xl transition-all"><Menu className={isDark ? 'text-stark-cyan' : 'text-stark-red'} /></button>
       <AnimatePresence>
         {isSidebarOpen && (
@@ -233,12 +237,12 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* BIOMETRIC SCAN UI (UNTOUCHED) */}
+      {/* BIOMETRIC SCAN UI */}
       <AnimatePresence>
         {isScanning && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center p-10">
             <Scan className="text-stark-cyan w-24 h-24 animate-pulse mb-8" />
-            <h4 className="text-3xl font-black uppercase tracking-[0.4em] text-stark-cyan mb-4">Decrypting Identity...</h4>
+            <h4 className="text-3xl font-black uppercase tracking-[0.4em] text-stark-cyan mb-4 text-center">Decrypting Identity...</h4>
             <div className="w-80 h-1 bg-white/10 rounded-full overflow-hidden">
                <motion.div className="h-full bg-stark-cyan" animate={{ width: `${scanProgress}%` }} />
             </div>
@@ -247,12 +251,12 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* POWER TOGGLE (UNTOUCHED) */}
+      {/* THEME TOGGLE */}
       <button onClick={() => setIsDark(!isDark)} className="fixed top-8 right-8 z-[110] p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl hover:rotate-180 transition-all">
         {isDark ? <Sun className="text-stark-gold" /> : <Moon className="text-stark-red" />}
       </button>
 
-      {/* EHA CHAT (UNTOUCHED) */}
+      {/* EHA CHAT */}
       <div className="fixed bottom-8 right-8 z-[110]">
         <AnimatePresence>
           {isEhaOpen && (
@@ -280,7 +284,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* HERO SECTION (ENHANCED TITLE) */}
+      {/* HERO SECTION */}
       <section className="relative h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="relative w-48 h-48 flex items-center justify-center mb-10 mx-auto">
           <div className={`absolute inset-0 rounded-full border-4 border-dashed opacity-40 ${isDark ? 'border-stark-cyan shadow-[0_0_50px_#22d3ee]' : 'border-stark-red shadow-[0_0_50px_#ef4444]'}`} />
@@ -305,7 +309,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ABOUT (WITH TILT & GLOW) */}
+      {/* ABOUT (WITH TILT) */}
       <section id="about" className="py-24 px-6 max-w-6xl mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20 items-center">
           <TiltCard className="relative group">
@@ -316,11 +320,11 @@ export default function Home() {
             <h3 className={`font-mono text-sm tracking-[0.8em] uppercase flex items-center gap-4 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><Target size={24} /> Neural Identity</h3>
             <p className="italic font-bold text-4xl leading-tight">"Innovation is building armor for raw intelligence."</p>
             <p>{PROFILE.summary}</p>
-            <p>Inspired by the Stark Legacy, I architect Intelligent Armor for Data. My focus is **RAG and Computer Vision**, where I bridge raw inference and actionable, grounded truth.</p>
-            <div className="grid grid-cols-3 gap-10 pt-10 border-t border-white/10 text-center">
-              <div><p className={`text-5xl font-black ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>20+</p><p className="text-xs uppercase font-mono tracking-widest opacity-50 mt-2">Missions</p></div>
-              <div><p className={`text-5xl font-black ${isDark ? 'text-stark-gold' : 'text-amber-500'}`}>8.11</p><p className="text-xs uppercase font-mono tracking-widest opacity-50 mt-2">CGPA</p></div>
-              <div><p className="text-5xl font-black text-green-500">100%</p><p className="text-xs uppercase font-mono tracking-widest opacity-50 mt-2">Recall</p></div>
+            <p>Inspired by the Stark Legacy, I specialize in building Intelligent Armor for Data. My focus is RAG and Computer Vision, where I bridge the gap between raw data and grounded truth.</p>
+            <div className="grid grid-cols-3 gap-10 pt-10 border-t border-white/10 text-center text-sm md:text-xl">
+              <div><p className={`text-5xl font-black ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>20+</p><p className="text-[10px] uppercase font-mono tracking-widest opacity-50 mt-2">Missions</p></div>
+              <div><p className={`text-5xl font-black ${isDark ? 'text-stark-gold' : 'text-amber-500'}`}>8.11</p><p className="text-[10px] uppercase font-mono tracking-widest opacity-50 mt-2">CGPA</p></div>
+              <div><p className="text-5xl font-black text-green-500">100%</p><p className="text-[10px] uppercase font-mono tracking-widest opacity-50 mt-2">Recall</p></div>
             </div>
           </div>
         </div>
@@ -362,7 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS (TACTICAL ARCHIVES) */}
+      {/* PROJECTS */}
       <section id="missions" className="py-24 px-6 max-w-7xl mx-auto relative">
         <h4 className="text-5xl font-black text-center uppercase mb-24 tracking-tighter leading-none">Tactical Archives</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
@@ -383,7 +387,7 @@ export default function Home() {
             </TiltCard>
           ))}
         </div>
-        <div className="mt-32 text-center p-24 border-4 border-dashed border-white/5 rounded-[4rem] group hover:border-stark-cyan/20 transition-all relative overflow-hidden">
+        <div className="mt-32 text-center p-24 border-4 border-dashed border-white/5 rounded-[4rem] group hover:border-stark-cyan/20 transition-all relative overflow-hidden text-center">
           <div className="absolute inset-0 bg-stark-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <h4 className="text-5xl font-black mb-8 uppercase tracking-tight">Open Global Database</h4>
           <p className="text-gray-500 mb-16 max-w-xl mx-auto font-mono text-base uppercase tracking-widest italic opacity-60">20+ Multi-Mission Repositories // Mainframe Status: Synchronized</p>
@@ -394,7 +398,7 @@ export default function Home() {
       {/* COMMENDATIONS */}
       <section className={`py-32 px-6 border-t border-white/5 relative ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
-          <div className="space-y-12">
+          <div className="space-y-12 text-left">
             <h4 className="text-4xl font-black uppercase flex items-center gap-6"><Trophy className="text-stark-gold" size={40} /> Commendations</h4>
             {ACHIEVEMENTS.map((ach, i) => (
               <div key={i} className={`p-12 border-l-[16px] rounded-4xl transition-all duration-500 ${isDark ? 'bg-[#080808] border-stark-gold hover:bg-white/[0.05]' : 'bg-white border-amber-500 shadow-2xl'}`}>
@@ -403,10 +407,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 h-fit">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 h-fit text-left">
             <h4 className="text-4xl font-black uppercase col-span-full flex items-center gap-6"><Award className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={40} /> System Upgrades</h4>
             {CERTIFICATES.map((cert, i) => (
-              <TiltCard key={i} className={`p-10 border-2 rounded-[2rem] transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50 shadow-2xl' : 'bg-white border-gray-200 shadow-2xl'}`}>
+              <TiltCard key={i} className={`p-10 border-2 rounded-[2rem] transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50' : 'bg-white border-gray-200 shadow-2xl'}`}>
                 <h5 className={`text-xs font-mono uppercase mb-4 ${isDark ? 'text-stark-gold' : 'text-amber-600'}`}>{cert.issuer}</h5>
                 <p className="text-sm font-black uppercase leading-tight mb-8 tracking-tighter">{cert.title}</p>
                 <a href={cert.link} target="_blank" className="text-[10px] font-mono opacity-30 group-hover:opacity-100 uppercase tracking-widest flex items-center gap-3">Verify_Upgrade <ChevronRight size={14} /></a>
