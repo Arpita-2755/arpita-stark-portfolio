@@ -1,65 +1,60 @@
-import Image from "next/image";
+"use client";
+import { motion } from "framer-motion";
+import { ShieldCheck, Cpu, Zap } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="relative min-h-screen flex flex-col items-center justify-center p-4">
+      {/* Background Decorative Element: The Arc Reactor Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-stark-blue/20 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Main Content */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="z-10 text-center"
+      >
+        <div className="flex items-center justify-center mb-6">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="p-1 border-2 border-dashed border-stark-cyan rounded-full"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="p-4 bg-stark-blue/10 rounded-full border border-stark-cyan shadow-[0_0_20px_rgba(34,211,238,0.3)]">
+              <Zap className="w-12 h-12 text-stark-cyan" />
+            </div>
+          </motion.div>
         </div>
-      </main>
-    </div>
+
+        <h2 className="text-stark-cyan font-mono text-sm tracking-[0.3em] mb-2 uppercase">
+          System Status: Online
+        </h2>
+        <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter">
+          ARPITA <span className="text-stark-red">MISHRA</span>
+        </h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-lg mb-8">
+          Machine Learning Engineer | GenAI Specialist | Stark Industries Enthusiast
+        </p>
+
+        <div className="flex gap-4 justify-center">
+          <button className="px-8 py-3 bg-stark-red text-white font-bold rounded-sm border-b-4 border-red-800 hover:bg-red-500 transition-all uppercase tracking-widest text-sm">
+            View Missions
+          </button>
+          <button className="px-8 py-3 border border-stark-cyan text-stark-cyan font-bold rounded-sm hover:bg-stark-cyan/10 transition-all uppercase tracking-widest text-sm">
+            Download Dossier
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Bottom HUD Bar */}
+      <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end border-t border-white/10 pt-4 font-mono text-[10px] text-stark-cyan/50 uppercase tracking-[0.2em]">
+        <div className="flex gap-8">
+          <div>Lat: 22.6708° N</div>
+          <div>Long: 71.5724° E</div>
+        </div>
+        <div className="animate-pulse">Neural Link Stable</div>
+      </div>
+    </main>
   );
 }
