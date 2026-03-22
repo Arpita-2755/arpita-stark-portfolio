@@ -11,7 +11,7 @@ import {
 // --- DATA REPOSITORY (UNTOUCHED) ---
 const PROFILE = {
   name: "Arpita Mishra",
-  summary: "Machine Learning Engineer specializing in retrieval systems, representation learning, and applied AI system design. Architect of end-to-end ML pipelines spanning embedding generation, vector search optimization, and production deployment.",
+  summary: "Designing intelligent systems that don't just predict — they understand. ML Engineer focused on Retrieval-Augmented Generation, Computer Vision, and production-grade AI pipelines built for reliability, not demos.",
   cgpa: "8.11 (Dean's List - Top 15%)",
   matric: "93.8%",
   inter: "84.8%",
@@ -20,27 +20,27 @@ const PROFILE = {
 };
 
 const SKILLS = [
-  { title: "Core Processors", icon: <Code className="text-stark-red" />, skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"] },
-  { title: "Neural & GenAI", icon: <Brain className="text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness", "TF-IDF"] },
-  { title: "Targeting Systems (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
-  { title: "Cloud & Support", icon: <Server className="text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design"] }
+  { title: "Core Engineering", icon: <Code className="text-stark-red" />, skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"] },
+  { title: "ML & GenAI Systems", icon: <Brain className="text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness", "TF-IDF"] },
+  { title: "Computer Vision", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
+  { title: "Infrastructure & Deployment", icon: <Server className="text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design"] }
 ];
 
 const PROJECTS = [
-  { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating generative hallucination through semantic grounding in 700+ verse embeddings using FAISS L2-normalized search (0.45 threshold) and mean-confidence calibration.", tags: ["FAISS", "MiniLM", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Database /> },
-  { title: "Slot Recommender", subtitle: "Healthcare NLP Intent", description: "NLP system converting patient queries into appointment slots. Implemented hierarchical recommendation mapping intent to urgency levels with 80%+ accuracy using synthetic datasets and TF-IDF.", tags: ["Scikit-learn", "TF-IDF", "Streamlit"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Activity /> },
-  { title: "PromptGuard", subtitle: "LLM Robustness", description: "Deterministic prompt-mutation engine for detecting behavioral drift and response instability in LLMs without requiring labeled ground truth. Enforced inference determinism.", tags: ["distilgpt2", "HuggingFace", "Python"], github: "https://github.com/Arpita-2755/PromptGuard", demo: "https://promptguard-llm-robustness.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Shield /> },
-  { title: "IntelliCampus", subtitle: "AI Smart Attendance", description: "Sub-second multi-face identification using RetinaFace and FaceNet. Built a modular AI engine decoupled from Flask routes, supporting automatic FAISS index rebuilding.", tags: ["RetinaFace", "FaceNet", "Flask"], github: "https://github.com/Arpita-2755/IntelliCampus", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Eye /> },
-  { title: "RouteMate", subtitle: "Bus Reservation", description: "Full-stack reservation platform using queue-based seat allocation (deque) to prevent race conditions. Implemented secure session management and automated notifications.", tags: ["Flask", "MySQL", "System Design"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Bus /> },
-  { title: "Speech Analyzer", subtitle: "Unsupervised ML", description: "Unsupervised NLP clustering pipeline discovering latent semantic speech patterns using contextual MiniLM embeddings and UMAP dimensionality reduction (384 to 2) followed by KMeans (k=3).", tags: ["UMAP", "KMeans", "NLP"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <MessageSquare /> },
-  { title: "Face Verify", subtitle: "DL Siamese Network", description: "Face verification pipeline using frozen FaceNet embeddings and custom Euclidean similarity layer. Achieved 100% recall on fixed evaluation pairs via similarity threshold calibration.", tags: ["TensorFlow", "Keras", "FaceNet"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Cpu /> }
+  { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating generative hallucination through semantic grounding in 700+ verse embeddings using FAISS L2-normalized search (0.45 threshold) and mean-confidence calibration.", tags: ["FAISS", "MiniLM", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app/", medium: "https://medium.com/@arpitamishra2755/️-building-gitarag-a-hallucination-resistant-retrieval-system-for-the-bhagavad-gita-872bbd122784", icon: <Database /> },
+  { title: "PromptGuard", subtitle: "LLM Robustness", description: "Deterministic prompt-mutation engine for detecting behavioral drift and response instability in LLMs without requiring labeled ground truth. Enforced inference determinism.", tags: ["distilgpt2", "HuggingFace", "Python"], github: "https://github.com/Arpita-2755/promptguard-llm-robustness", demo: "https://promptguard-llm-robustness.streamlit.app/", medium: "https://medium.com/@arpitamishra2755", icon: <Shield /> },
+  { title: "IntelliCampus", subtitle: "AI Smart Attendance", description: "Sub-second multi-face identification using RetinaFace and FaceNet. Built a modular AI engine decoupled from Flask routes, supporting automatic FAISS index rebuilding.", tags: ["RetinaFace", "FaceNet", "Flask"], github: "https://github.com/Arpita-2755/IntelliCampus", demo: null, medium: "https://medium.com/@arpitamishra2755/building-intellicampus-an-ai-powered-face-recognition-attendance-system-end-to-end-architecture-86f422e0c6d9", icon: <Eye /> },
+  { title: "Speech Analyzer", subtitle: "Unsupervised ML", description: "Unsupervised NLP clustering pipeline discovering latent semantic speech patterns using contextual MiniLM embeddings and UMAP dimensionality reduction (384 to 2) followed by KMeans (k=3).", tags: ["UMAP", "KMeans", "NLP"], github: "https://github.com/Arpita-2755/unsupervised-speech-pattern-analysis", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <MessageSquare /> },
+  { title: "Face Verify", subtitle: "DL Siamese Network", description: "Face verification pipeline using frozen FaceNet embeddings and custom Euclidean similarity layer. Achieved 100% recall on fixed evaluation pairs via similarity threshold calibration.", tags: ["TensorFlow", "Keras", "FaceNet"], github: "https://github.com/Arpita-2755/Face_Verification_App", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Cpu /> },
+  { title: "RouteMate", subtitle: "Bus Reservation", description: "Full-stack reservation platform using queue-based seat allocation (deque) to prevent race conditions. Implemented secure session management and automated notifications.", tags: ["Flask", "MySQL", "System Design"], github: "https://github.com/Arpita-2755/RouteMate", demo: null, medium: "https://medium.com/@arpitamishra2755/routemate-designing-a-fair-modern-bus-reservation-system-with-flask-c4407b66610e", icon: <Bus /> },
+  { title: "Slot Recommender", subtitle: "Healthcare NLP Intent", description: "NLP system converting patient queries into appointment slots. Implemented hierarchical recommendation mapping intent to urgency levels with 80%+ accuracy using synthetic datasets and TF-IDF.", tags: ["Scikit-learn", "TF-IDF", "Streamlit"], github: "https://github.com/Arpita-2755/healthcare-appointment-slot-recommendation-nlp", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Activity /> }
 ];
 
 const EXPERIENCE = [
-  { role: "Data Analytics Participant", company: "Deloitte Australia", date: "July 2025", desc: "Analyzed transactional datasets to identify anomaly patterns and modeled business trends.", link: "https://forage-link.com" },
-  { role: "Community Service Intern", company: "Indian Red Cross Society", date: "June 2024 - July 2024", desc: "Delivered adaptive STEM instruction for students with disabilities; applied inclusive teaching strategies.", link: null },
-  { role: "Technical Member", company: "GitHub Students Club, LPU", date: "Sept 2024 - Present", desc: "Supported recruitment of 300+ members; conducted Git/GitHub workshops.", link: null },
-  { role: "Technical Team Member", company: "Coding Blocks (DSO), LPU", date: "2023 - 2024", desc: "Competed in 36-hour ByteBash coding hackathon; coordinated full-stack development workshops.", link: null }
+  { role: "Data Analytics Participant", company: "Deloitte Australia", date: "July 2025", desc: "Analyzed transactional datasets to detect anomalies and extract actionable patterns. Built data-driven insights for trend modeling and anomaly detection in structured datasets.", link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_DgRXPzHLgAapZKy5Z_1752003393777_completion_certificate.pdf" },
+  { role: "Community Service Intern", company: "Indian Red Cross Society", date: "June 2024 - July 2024", desc: "Delivered adaptive STEM education for students with disabilities. Focused on inclusive teaching methods and applied problem-solving approaches.", link: null },
+  { role: "Technical Member", company: "GitHub Students Club, LPU", date: "Sept 2024 - Present", desc: "Contributed to scaling a 300+ member tech community. Led Git & GitHub workshops and supported peer learning initiatives.", link: null },
+  { role: "Technical Team Member", company: "Coding Blocks (DSO), LPU", date: "2023 - 2024", desc: "Participated in competitive hackathons and full-stack workshops. Built rapid prototypes under time constraints and collaborated in high-pressure environments.", link: null }
 ];
 
 const ACHIEVEMENTS = [
@@ -49,36 +49,135 @@ const ACHIEVEMENTS = [
 ];
 
 const CERTIFICATES = [
-  { title: "Software Engineer", issuer: "HackerRank", date: "Sept 2025", link: "https://hackerrank.com" },
-  { title: "SQL (Advanced)", issuer: "HackerRank", date: "Sept 2025", link: "https://hackerrank.com" },
-  { title: "GenAI & Prompt Engineering", issuer: "Infosys", date: "Aug 2025", link: "https://infosys.com" },
-  { title: "Social Media Security (Elite)", issuer: "NPTEL", date: "April 2025", link: "https://nptel.ac.in" }
+  { title: "Software Engineer", issuer: "HackerRank", date: "Sept 2025", link: "https://www.hackerrank.com/certificates/4e6f57b068ee" },
+  { title: "SQL (Advanced)", issuer: "HackerRank", date: "Sept 2025", link: "https://www.hackerrank.com/certificates/dadc73f559b0" },
+  { title: "GenAI & Prompt Engineering", issuer: "Infosys", date: "Aug 2025", link: "https://drive.google.com/drive/folders/1ILY2TIo-1WFJB7W4fFisIFTKVlJr9CMa" },
+  { title: "Social Media Security (Elite)", issuer: "NPTEL", date: "April 2025", link: "https://archive.nptel.ac.in/content/noc/NOC25/SEM1/Ecertificates/106/noc25-cs79/Course/NPTEL25CS79S24750097504479896.pdf" }
 ];
 
 const EDUCATION = [
-  { title: "B.Tech CSE", school: "LPU", score: "8.11 CGPA", date: "2023 - 2027", detail: "Dean's List - Top 15%" },
-  { title: "Intermediate", school: "Lions School", score: "84.8%", date: "2023", detail: "PCM Distinction" },
-  { title: "Matriculation", school: "Lions School", score: "93.8%", date: "2021", detail: "Distinction" }
+  { title: "B.Tech CSE", school: "Lovely Professional University | Phagwara, Punjab", score: "8.11 CGPA", date: "2023 - 2027", detail: "Dean's List - Top 15%" },
+  { title: "Intermediate", school: "Lions English School | Silvassa, D&NH", score: "84.8%", date: "2022 - 2023", detail: "PCM Distinction" },
+  { title: "Matriculation", school: "Lions English School | Silvassa, D&NH", score: "93.8%", date: "2020 - 2021", detail: "Distinction" }
 ];
 
 const CONTACT_LINKS = [
   { icon: <Mail />, label: "Email", link: `mailto:${PROFILE.email}`, color: "hover:bg-red-500" },
   { icon: <Linkedin />, label: "LinkedIn", link: "https://linkedin.com/in/arpita2755", color: "hover:bg-blue-600" },
   { icon: <Github />, label: "GitHub", link: "https://github.com/Arpita-2755", color: "hover:bg-gray-700" },
-  { icon: <Code />, label: "LeetCode", link: "https://leetcode.com/u/Arpita_2755/", color: "hover:bg-orange-500" },
+  { icon: <Code />, label: "LeetCode", link: "https://leetcode.com/u/Arpita-27/", color: "hover:bg-orange-500" },
   { icon: <BookOpen />, label: "Medium", link: "https://medium.com/@arpitamishra2755", color: "hover:bg-green-600" },
-  { icon: <Twitter />, label: "X", link: "https://x.com/ArpitaM_2755", color: "hover:bg-sky-500" },
+  { icon: <Twitter />, label: "X", link: "https://x.com/Arpita2109", color: "hover:bg-sky-500" },
   { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" }
 ];
 
 const EHA_KB = [
-  { keywords: ["cgpa", "marks", "score", "grade", "10th", "12th", "dean"], response: "Arpita holds an 8.11 CGPA at LPU (Top 15%, Dean's List). Schooling: 93.8% in 10th and 84.8% in 12th at Lions English School." },
-  { keywords: ["slot", "healthcare", "recommendation", "synthetic"], response: "The Slot Recommender uses synthetic patient datasets and TF-IDF extraction with Logistic Regression to achieve 80%+ intent accuracy for appointment slot mapping." },
-  { keywords: ["routemate", "bus", "deque", "race"], response: "RouteMate prevents race conditions in bus bookings using a queue-based seat allocation system (deque) and secure session management. Built with Flask/MySQL." },
-  { keywords: ["gitarag", "embeddings", "0.45", "hallucination"], response: "GitaRAG indexes 700+ verse embeddings using FAISS L2-normalization with a 0.45 threshold and mean-confidence calibration to eliminate generative hallucination." },
-  { keywords: ["sih", "hackathon", "aqua", "quest"], response: "Arpita was Team Leader for SIH 2024, building 'Aqua Quest'—a multi-level web game for groundwater conservation using Firebase." },
-  { keywords: ["skill", "python", "stack", "know"], response: "Arpita's stack: Python, C++, SQL, Java. ML Specialty: RAG, CV, LLMs, and Backend Architectures." },
-  { keywords: ["who", "arpita", "mishra"], response: "Arpita Mishra is an ML Engineer and Visionary Architect specializing in reliability-driven AI. She is currently running on the MARK-85 protocol." }
+
+  // 🧠 IDENTITY
+  {
+    keywords: ["who", "arpita", "mishra", "about", "introduce"],
+    response: "Arpita Mishra is a Machine Learning Engineer specializing in retrieval systems, representation learning, and reliability-focused AI system design. She builds end-to-end ML pipelines involving embeddings, vector search, clustering, and production deployment. Her work focuses on grounded AI systems — not just accurate, but dependable and interpretable."
+  },
+
+  // 🎯 CAREER OBJECTIVE
+  {
+    keywords: ["goal", "objective", "career", "seeking", "looking"],
+    response: "Arpita is seeking AI/ML engineering roles and software engineering internships where she can own end-to-end system development — from modeling to deployment — with a strong focus on real-world reliability and system design."
+  },
+
+  // 🎓 EDUCATION
+  {
+    keywords: ["cgpa", "marks", "score", "grade", "education", "10th", "12th", "school", "college", "dean"],
+    response: "Arpita is pursuing B.Tech in Computer Science at Lovely Professional University with an 8.11 CGPA, ranking in the top 15% (Dean’s List). She scored 84.8% in Intermediate and 93.8% in Matriculation from Lions English School."
+  },
+
+  // 💻 TECH STACK
+  {
+    keywords: ["skills", "tech", "stack", "languages", "tools", "technologies"],
+    response: "Arpita's stack includes Python, C++, C, Java, SQL, and JavaScript. She works with TensorFlow, Keras, Scikit-learn, SentenceTransformers (MiniLM), FAISS, UMAP, and KMeans. Her expertise spans RAG systems, prompt robustness testing, Computer Vision (FaceNet, RetinaFace), and backend systems using Flask, Django, and REST APIs. She also has experience with AWS (EC2, S3), Docker, Git, and system design principles."
+  },
+
+  // 🧠 CORE ML EXPERTISE
+  {
+    keywords: ["ml", "ai", "specialization", "domain", "focus"],
+    response: "Her core expertise lies in Retrieval-Augmented Generation (RAG), embedding systems, vector similarity search, unsupervised learning, prompt robustness testing, and Computer Vision pipelines. She focuses on building reliable AI systems using threshold calibration, inference control, and evaluation-driven design."
+  },
+
+  // 🔍 GITARAG
+  {
+    keywords: ["gitarag", "rag", "hallucination", "faiss", "embedding"],
+    response: "GitaRAG is a hallucination-resistant RAG system engineered using MiniLM embeddings and FAISS vector search over 700+ verse-level embeddings. It uses L2-normalization, a 0.45 similarity threshold, and mean-confidence calibration to suppress weak matches. A thematic clustering layer ensures doctrinal consistency, and an interactive interface validates retrieval quality."
+  },
+
+  // 🛡️ PROMPTGUARD
+  {
+    keywords: ["promptguard", "llm", "robustness", "drift", "mutation"],
+    response: "PromptGuard is a model-agnostic LLM robustness evaluation framework. It uses a deterministic prompt mutation engine to generate controlled semantic variations and detect behavioral drift without labeled data. The system enforces deterministic inference via temperature and token constraints and provides an interactive evaluation dashboard."
+  },
+
+  // 🎯 INTELLICAMPUS
+  {
+    keywords: ["intellicampus", "attendance", "face", "recognition", "facenet"],
+    response: "IntelliCampus is a real-time AI attendance system combining RetinaFace detection, FaceNet embeddings (128-d), and FAISS similarity search. It achieves sub-second identification latency and uses calibrated thresholds (production: 1.0). The system features a modular architecture, automatic FAISS index rebuilding, and attendance analytics."
+  },
+
+  // 🧠 SPEECH ANALYZER
+  {
+    keywords: ["speech", "analyzer", "unsupervised", "nlp", "clustering"],
+    response: "The Unsupervised Speech Pattern Analyzer is an NLP pipeline using MiniLM embeddings, UMAP dimensionality reduction (384→2), and KMeans clustering (k=3). It discovers latent semantic speech patterns without labeled data and includes an interactive visualization dashboard for cluster analysis."
+  },
+
+  // 🔐 FACE VERIFICATION
+  {
+    keywords: ["face verification", "siamese", "deep learning"],
+    response: "Arpita built an end-to-end face verification system using a Siamese-style architecture with FaceNet embeddings and a custom Euclidean similarity layer. Through systematic threshold calibration, the model achieved 100% recall on evaluation pairs, prioritizing secure authentication with minimal false negatives."
+  },
+
+  // 🚌 ROUTEMATE
+  {
+    keywords: ["routemate", "bus", "booking", "deque", "race condition"],
+    response: "RouteMate is a full-stack bus reservation system built with Flask and MySQL. It prevents race conditions using a queue-based seat allocation system (deque), supports concurrent user/admin workflows, and includes secure session management with automated notifications."
+  },
+
+  // 🏥 SLOT RECOMMENDER (NEW ADDITION)
+  {
+    keywords: ["slot", "healthcare", "recommendation", "nlp", "tfidf"],
+    response: "The Appointment Slot Recommendation system is an end-to-end NLP pipeline that converts free-text patient queries into structured healthcare appointment slots. It uses TF-IDF feature extraction and Logistic Regression, achieving 80%+ intent classification accuracy. A hierarchical mapping system links user intent to department, urgency, and optimal time slot, and the system is deployed via Streamlit for real-time interaction."
+  },
+
+  // 💼 EXPERIENCE
+  {
+    keywords: ["experience", "work", "deloitte", "internship"],
+    response: "Arpita participated in the Deloitte Australia Data Analytics Virtual Experience, where she analyzed transactional datasets to identify anomalies and model business trends. She also worked as a Community Service Intern at the Indian Red Cross Society, delivering adaptive STEM education using inclusive teaching strategies."
+  },
+
+  // 👥 LEADERSHIP
+  {
+    keywords: ["leadership", "team", "club", "github", "coding blocks"],
+    response: "Arpita is an active technical contributor and leader. At the GitHub Students Club (LPU), she supported recruitment of 300+ members and conducted Git/GitHub workshops. She was also part of Coding Blocks (DSO), where she participated in hackathons and coordinated full-stack development workshops."
+  },
+
+  // 🏆 ACHIEVEMENTS
+  {
+    keywords: ["achievement", "award", "sih", "hackathon", "winner"],
+    response: "Arpita was Team Leader at Smart India Hackathon 2024, leading a 6-member team to build Aqua Quest — a web-based educational game for groundwater conservation using HTML, CSS, JavaScript, and Firebase. She is also a 1st Runner-Up in the Speak & Spark Creativity Challenge, where she built a functional prototype within 15 minutes."
+  },
+
+  // 📜 CERTIFICATIONS
+  {
+    keywords: ["certificates", "certifications", "hackerRank", "nptel", "infosys"],
+    response: "Arpita holds certifications including Software Engineer and SQL (Advanced) from HackerRank, Generative AI & Prompt Engineering from Infosys Springboard, and Privacy & Security in Social Media (Elite) from NPTEL."
+  },
+
+  // ⚙️ SYSTEM DESIGN MINDSET
+  {
+    keywords: ["design", "approach", "philosophy", "system"],
+    response: "Arpita approaches AI as a systems engineering problem. Her focus is on building modular, scalable, and reliable pipelines with strong evaluation frameworks, threshold calibration, and controlled inference. She prioritizes grounded outputs over black-box predictions."
+  },
+  {
+  keywords: ["why hire", "why you", "why arpita"],
+  response: "Because I don't just build models — I build systems that work in the real world. My focus is on reliability, grounding, and end-to-end ownership. I care about what happens after deployment — not just accuracy on a notebook."
+}
 ];
 
 // --- UI HELPERS ---
@@ -156,7 +255,7 @@ export default function Home() {
   const scrollRef = useRef<HTMLDivElement>(null);
   
   const [heroText, setHeroText] = useState("");
-  const fullHeroText = "Initializing Protocol: Arpita Mishra... Mark-85 Neural Core active... Accessing archives for ML Engineer specialized in RAG & CV...";
+  const fullHeroText = "[CORE ONLINE] Building grounded AI systems. [STATUS] RAG | CV | ML Infrastructure | Production Deployment";
 
   useEffect(() => {
     let i = 0; let isDeleting = false;
@@ -265,7 +364,7 @@ export default function Home() {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Mark-85 Initialize // Arpita Mishra</h2>
+          <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>INITIATING SYSTEM: ARPITA MISHRA // ML SYSTEMS ENGINEER</h2>
           <h1 className={`text-7xl md:text-[9rem] font-black tracking-tighter leading-none mb-12 uppercase select-none transition-all duration-1000 ${isDark ? 'text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] animate-pulse' : 'text-gray-900'}`}>
             ARPITA <span className={isDark ? 'text-stark-red drop-shadow-[0_0_20px_#ef4444]' : 'text-stark-gold'}>MISHRA</span>
           </h1>
@@ -273,8 +372,8 @@ export default function Home() {
             <span className="font-bold mr-2 text-stark-cyan">[ROOT@EHA]:~#</span>{heroText}<span className="animate-pulse">_</span>
           </div>
           <div className="flex flex-wrap gap-6 justify-center mt-10">
-            <button onClick={() => scrollTo('about')} className={`px-16 py-6 font-black uppercase tracking-widest text-xs transition-all border-b-8 rounded-2xl ${isDark ? 'bg-stark-red border-red-900 text-white hover:bg-red-500 hover:-translate-y-1' : 'bg-stark-gold border-amber-500 text-white hover:bg-amber-500'}`}>Identity Protocol</button>
-            <button onClick={handleDownload} className={`px-16 py-6 border-2 font-black uppercase tracking-widest text-xs transition-all rounded-2xl ${isDark ? 'border-stark-cyan text-stark-cyan hover:bg-stark-cyan/10 hover:shadow-[0_0_30px_#22d3ee]' : 'border-stark-red text-stark-red hover:bg-stark-red/10'}`}>Secure Dossier</button>
+            <button onClick={() => scrollTo('about')} className={`px-16 py-6 font-black uppercase tracking-widest text-xs transition-all border-b-8 rounded-2xl ${isDark ? 'bg-stark-red border-red-900 text-white hover:bg-red-500 hover:-translate-y-1' : 'bg-stark-gold border-amber-500 text-white hover:bg-amber-500'}`}>Enter System</button>
+            <button onClick={handleDownload} className={`px-16 py-6 border-2 font-black uppercase tracking-widest text-xs transition-all rounded-2xl ${isDark ? 'border-stark-cyan text-stark-cyan hover:bg-stark-cyan/10 hover:shadow-[0_0_30px_#22d3ee]' : 'border-stark-red text-stark-red hover:bg-stark-red/10'}`}>Access Resume</button>
           </div>
         </motion.div>
       </section>
@@ -284,13 +383,17 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20 items-center">
           <TiltCard className="relative group">
             <div className={`absolute -inset-8 border border-dashed animate-[spin_30s_linear_infinite] rounded-3xl ${isDark ? 'border-stark-cyan/30' : 'border-stark-red/30'}`} />
-            <img src="/arpita.jpg" alt="Arpita" className={`w-full transition-all duration-1000 rounded-3xl shadow-2xl ${isDark ? 'grayscale brightness-75 hover:grayscale-0' : ''}`} />
+            <img src="/arpita.jpeg" alt="Arpita" className={`w-full transition-all duration-1000 rounded-3xl shadow-2xl ${isDark ? 'grayscale brightness-75 hover:grayscale-0' : ''}`} />
           </TiltCard>
           <div className="space-y-10 text-xl font-light leading-relaxed">
             <h4 className="text-5xl font-black uppercase tracking-tighter leading-tight">The Visionary Architect</h4>
-            <p className="italic font-bold text-3xl leading-tight">"If a system is noisy, it is failed armor. Grounding is the key."</p>
+            <p className="italic font-bold text-3xl leading-tight">""If your model hallucinates, your system design failed.
+Grounding isn't optional — it's the architecture.""</p>
             <p>{PROFILE.summary}</p>
-            <p>Inspired by the Stark Legacy, I specialize in building Intelligent Armor for Data. My focus is RAG and Computer Vision, where I bridge raw data and grounded truth.</p>
+            <p>I build machine learning systems that are not just accurate — but dependable. My work focuses on retrieval-based AI, embedding systems, and real-world ML pipelines where performance, explainability, and stability matter more than hype. From designing vector search systems to optimizing inference pipelines, I approach AI as an engineering discipline — not just experimentation.</p>
+<p>I specialize in RAG and Computer Vision, building systems that bridge raw data with grounded intelligence.
+Think less "black-box AI" — more "controlled, production-ready intelligence."</p>
+<p>Currently seeking ML/AI internships where I can build real-world systems at scale.</p>
             <div className="grid grid-cols-3 gap-10 pt-10 border-t border-white/10 text-center">
               <div><p className={`text-5xl font-black ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>20+</p><p className="text-xs uppercase font-mono tracking-widest opacity-60">Repos</p></div>
               <div><p className={`text-5xl font-black ${isDark ? 'text-stark-gold' : 'text-amber-500'}`}>8.11</p><p className="text-xs uppercase font-mono tracking-widest opacity-60">CGPA</p></div>
@@ -302,7 +405,7 @@ export default function Home() {
 
       {/* 7. SKILLS (FIXED: EVERY-TIME SLIDE-IN FROM LEFT) */}
       <section id="specs" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <h4 className="text-4xl font-black text-center uppercase mb-20 tracking-tighter">Armor Specifications</h4>
+        <h4 className="text-4xl font-black text-center uppercase mb-20 tracking-tighter">TECH STACK & SYSTEM CAPABILITIES</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SKILLS.map((cat, i) => (
             <motion.div
@@ -327,7 +430,7 @@ export default function Home() {
       {/* 8. EXPERIENCE (RESTORED SCROLL ANIMATION) */}
       <section id="history" className={`py-24 px-6 border-y border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
         <div className="max-w-5xl mx-auto space-y-16">
-          <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter">Operational History</h4>
+          <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter">EXECUTION LOG</h4>
           {EXPERIENCE.map((exp, i) => (
             <motion.div 
               key={i} 
@@ -354,7 +457,7 @@ export default function Home() {
 
       {/* 9. PROJECTS */}
       <section id="missions" className="py-24 px-6 max-w-7xl mx-auto">
-        <h4 className="text-5xl font-black text-center uppercase mb-24 tracking-tighter leading-none">Tactical Archives</h4>
+        <h4 className="text-5xl font-black text-center uppercase mb-24 tracking-tighter leading-none">PROJECT SYSTEMS</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
           {PROJECTS.map((p, i) => (
             <TiltCard key={i} className={`group relative border-2 p-12 flex flex-col h-full transition-all rounded-[2.5rem] overflow-hidden ${isDark ? 'bg-[#050505] border-white/10 hover:border-stark-cyan/40 shadow-2xl' : 'bg-white border-gray-200 hover:shadow-2xl'}`}>
@@ -384,7 +487,7 @@ export default function Home() {
       <section className={`py-32 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
           <div className="space-y-12">
-            <h4 className="text-4xl font-black uppercase flex items-center gap-6"><Trophy className="text-stark-gold" size={40} /> Commendations</h4>
+            <h4 className="text-4xl font-black uppercase flex items-center gap-6"><Trophy className="text-stark-gold" size={40} /> ACHIEVEMENT LOG</h4>
             {ACHIEVEMENTS.map((ach, i) => (
               <div key={i} className={`p-12 border-l-[16px] rounded-4xl transition-all duration-500 ${isDark ? 'bg-[#080808] border-stark-gold hover:bg-white/[0.05]' : 'bg-white border-amber-500 shadow-2xl'}`}>
                 <h5 className="text-3xl font-black uppercase mb-4 tracking-tighter">{ach.title}</h5>
@@ -408,7 +511,7 @@ export default function Home() {
       {/* 11. EDUCATION */}
       <section id="education" className={`py-32 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-200/50'}`}>
         <div className="max-w-6xl mx-auto">
-          <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> Academic Database</h4>
+          <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> ACADEMIC METRICS</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14 text-center">
             {EDUCATION.map((edu, i) => (
               <TiltCard key={i} className={`p-16 border-t-[14px] rounded-[3rem] text-center transition-all ${isDark ? `bg-white/5 border-stark-cyan hover:bg-white/[0.08] shadow-[0_0_40px_rgba(34,211,238,0.1)]` : `bg-white shadow-2xl border-stark-red`}`}>
@@ -426,6 +529,7 @@ export default function Home() {
       <section id="nexus" className="py-32 px-6 border-t border-white/5 bg-black">
         <div className="max-w-6xl mx-auto text-center">
           <h4 className="text-6xl font-black uppercase mb-24 tracking-tighter flex items-center justify-center gap-10"><Target className="text-stark-red w-16 h-16" /> Establish Uplink</h4>
+          <p>Open channels for collaboration, internships, and impactful engineering work.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10">
             {[
               { icon: <Mail />, label: "Email", link: `mailto:${PROFILE.email}`, color: "hover:bg-red-500" },
@@ -446,7 +550,7 @@ export default function Home() {
       </section>
 
       <footer className="py-20 text-center text-gray-500 font-mono text-[10px] uppercase tracking-[1.2em] border-t border-white/5 opacity-50">
-        Arpita Mishra // Eha Intelligence v5.0 // Mark-85 Fully Active
+        Arpita Mishra // Eha Intelligence v5.0 // © 2024 All Rights Reserved
       </footer>
       
       <style jsx global>{`
