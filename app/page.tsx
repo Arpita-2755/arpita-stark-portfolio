@@ -5,10 +5,10 @@ import {
   Zap, ExternalLink, Github, Database, Brain, Eye, Cpu, MessageSquare, 
   Bus, Globe, BookOpen, Code, Server, Shield, Briefcase, GraduationCap, 
   Award, Linkedin, Mail, Trophy, Activity, Terminal, ChevronRight, FileCheck,
-  Twitter, Target, User, Send, Phone, Sun, Moon, Layers, Menu, X, Scan, Loader2
+  Twitter, Target, User, Send, Phone, Sun, Moon, Layers, Menu, X, Scan, Radar, Sparkles
 } from "lucide-react";
 
-// --- DATA REPOSITORY (UNTOUCHED) ---
+// --- DATA REPOSITORY (UNTOUCHED & COMPLETE) ---
 const PROFILE = {
   name: "Arpita Mishra",
   summary: "Machine Learning Engineer specializing in retrieval systems, representation learning, and applied AI system design. Experienced in building end-to-end ML pipelines spanning embedding generation, vector search optimization, and production deployment.",
@@ -22,7 +22,7 @@ const PROFILE = {
 const SKILLS = [
   { title: "Core Processors", icon: <Code className="text-stark-red" />, skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"] },
   { title: "Neural & GenAI", icon: <Brain className="text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness", "TF-IDF"] },
-  { title: "Targeting (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
+  { title: "Targeting Systems (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
   { title: "Cloud & Support", icon: <Server className="text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design"] }
 ];
 
@@ -71,7 +71,7 @@ const CONTACT_LINKS = [
   { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" }
 ];
 
-// --- EHA'S KNOWLEDGE BASE (UNTOUCHED) ---
+// --- EHA'S KNOWLEDGE BASE ---
 const EHA_KB = [
   { keywords: ["cgpa", "marks", "10th", "12th"], response: "Arpita has an 8.11 CGPA (Dean's List). Marks: 93.8% (10th) and 84.8% (12th)." },
   { keywords: ["slot", "healthcare"], response: "The Slot Recommender uses synthetic datasets and TF-IDF with Logistic Regression for 80%+ intent accuracy." },
@@ -81,90 +81,136 @@ const EHA_KB = [
   { keywords: ["who", "arpita"], response: "Arpita Mishra is an ML Engineer and Visionary Architect running on the MARK-85 protocol." }
 ];
 
-// --- ADVANCED UI ENHANCEMENTS (NEW) ---
+// --- ADVANCED "AMAZING" COMPONENTS ---
 
 const NeuralBackground = ({ isDark }: { isDark: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  
   useEffect(() => {
-    const canvas = canvasRef.current; if (!canvas) return;
-    const ctx = canvas.getContext('2d'); if (!ctx) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
     let particles: any[] = [];
     let w = canvas.width = window.innerWidth;
     let h = canvas.height = window.innerHeight;
-    const resize = () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; };
+
+    const resize = () => {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    };
+
     window.addEventListener('resize', resize);
-    for (let i = 0; i < 85; i++) {
+    resize();
+
+    for (let i = 0; i < 80; i++) {
       particles.push({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2,
-        pulse: Math.random() * 0.05
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2
       });
     }
+
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = isDark ? 'rgba(34, 211, 238, 0.4)' : 'rgba(239, 68, 68, 0.4)';
-      ctx.strokeStyle = isDark ? 'rgba(34, 211, 238, 0.08)' : 'rgba(239, 68, 68, 0.08)';
+      ctx.fillStyle = isDark ? 'rgba(34, 211, 238, 0.5)' : 'rgba(239, 68, 68, 0.5)';
+      ctx.strokeStyle = isDark ? 'rgba(34, 211, 238, 0.1)' : 'rgba(239, 68, 68, 0.1)';
+
       particles.forEach((p, i) => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1; if (p.y < 0 || p.y > h) p.vy *= -1;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size + Math.sin(Date.now() * 0.002 + i) * 0.5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
+
         for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j]; const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 180) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
         }
       });
       requestAnimationFrame(draw);
     };
     draw();
-    return () => window.removeEventListener('resize', resize);
   }, [isDark]);
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-60" />;
+
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-40" />;
 };
 
 const HUDTerminal = ({ isDark }: { isDark: boolean }) => {
   const [logs, setLogs] = useState<string[]>([]);
-  const techStrings = ["INITIATING_RAG_CORE...", "UPLINK_STABLE", "FAISS_INDEX_REBUILT", "NEURAL_LINK_SYNCHRONIZED", "MARK-85_ONLINE", "SCANNING_REPOSITORIES", "DECRYPTING_BIOMETRICS...", "CGPA_VERIFIED: 8.11", "TRACING_NEURAL_PATH"];
+  const techStrings = [
+    "INITIATING_RAG_CORE...", "UPLINK_STABLE", "FAISS_INDEX_REBUILT", 
+    "NEURAL_LINK_SYNCHRONIZED", "MARK-85_ONLINE", "SCANNING_REPOSITORIES",
+    "DECRYPTING_BIOMETRICS...", "CGPA_VERIFIED: 8.11", "TRACING_NEURAL_PATH"
+  ];
+
   useEffect(() => {
-    const interval = setInterval(() => { setLogs(prev => [techStrings[Math.floor(Math.random() * techStrings.length)], ...prev].slice(0, 5)); }, 3500);
+    const interval = setInterval(() => {
+      setLogs(prev => [techStrings[Math.floor(Math.random() * techStrings.length)], ...prev].slice(0, 5));
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className={`fixed bottom-10 left-10 z-[50] font-mono text-[8px] uppercase tracking-widest pointer-events-none hidden lg:block ${isDark ? 'text-stark-cyan/30' : 'text-stark-red/30'}`}>
-      {logs.map((log, i) => ( <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>{`> ${log}`}</motion.div> ))}
+    <div className={`fixed bottom-10 left-10 z-[50] font-mono text-[9px] uppercase tracking-widest pointer-events-none hidden lg:block ${isDark ? 'text-stark-cyan/40' : 'text-stark-red/40'}`}>
+      {logs.map((log, i) => (
+        <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
+          {`> ${log}`}
+        </motion.div>
+      ))}
     </div>
   );
 };
 
 const TiltCard = ({ children, className }: any) => {
-  const x = useMotionValue(0); const y = useMotionValue(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [10, -10]);
   const rotateY = useTransform(x, [-100, 100], [-10, 10]);
-  const springX = useSpring(rotateX); const springY = useSpring(rotateY);
+  const springX = useSpring(rotateX);
+  const springY = useSpring(rotateY);
+
   return (
     <motion.div 
-      onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); x.set(e.clientX - rect.left - rect.width / 2); y.set(e.clientY - rect.top - rect.height / 2); }} 
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        x.set(e.clientX - rect.left - rect.width / 2);
+        y.set(e.clientY - rect.top - rect.height / 2);
+      }} 
       onMouseLeave={() => { x.set(0); y.set(0); }}
       style={{ rotateX: springX, rotateY: springY, transformStyle: "preserve-3d" }}
-      className={`relative overflow-hidden ${className}`}
+      className={className}
     >
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/[0.05] to-white/0 -translate-x-full animate-[shimmer_5s_infinite] skew-x-12" />
       {children}
     </motion.div>
   );
 };
 
 const CustomCursor = ({ isDark }: { isDark: boolean }) => {
-  const mouseX = useMotionValue(0); const mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   useEffect(() => {
     const move = (e: MouseEvent) => { mouseX.set(e.clientX); mouseY.set(e.clientY); };
-    window.addEventListener("mousemove", move); return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
   }, [mouseX, mouseY]);
+
   return (
     <motion.div 
-      className={`fixed top-0 left-0 w-10 h-10 border-[1px] rounded-full pointer-events-none z-[1000] hidden lg:flex items-center justify-center ${isDark ? 'border-stark-cyan/40' : 'border-stark-red/40'}`}
+      className={`fixed top-0 left-0 w-10 h-10 border-[1px] rounded-full pointer-events-none z-[1000] hidden lg:flex items-center justify-center ${isDark ? 'border-stark-cyan/50' : 'border-stark-red/50'}`}
       style={{ x: mouseX, y: mouseY, translateX: "-50%", translateY: "-50%" }}
     >
       <div className={`w-1 h-1 rounded-full ${isDark ? 'bg-stark-cyan' : 'bg-stark-red'}`} />
@@ -178,21 +224,28 @@ export default function Home() {
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
   const [chatInput, setChatInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Online. Neural link stable." }]);
+  const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Online. Systems at 100%. Neural link stable." }]);
   const [isEhaOpen, setIsEhaOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  
   const [text, setText] = useState("");
   const fullHeroText = "Initializing Protocol: Arpita Mishra... Mark-85 Neural Core active... Accessing archives for ML Engineer specialized in RAG & Computer Vision...";
 
   useEffect(() => {
-    let i = 0; const timer = setInterval(() => { setText(fullHeroText.slice(0, i)); i++; if (i > fullHeroText.length) clearInterval(timer); }, 30);
+    let i = 0;
+    const timer = setInterval(() => {
+      setText(fullHeroText.slice(0, i)); i++;
+      if (i > fullHeroText.length) clearInterval(timer);
+    }, 30);
     return () => clearInterval(timer);
   }, []);
 
   const handleEhaChat = (e: React.FormEvent) => {
-    e.preventDefault(); if (!chatInput.trim()) return;
+    e.preventDefault();
+    if (!chatInput.trim()) return;
     setChatHistory(prev => [...prev, { role: "user", text: chatInput }]);
-    const userMsg = chatInput.toLowerCase(); setChatInput("");
+    const userMsg = chatInput.toLowerCase();
+    setChatInput("");
     setTimeout(() => {
       const match = EHA_KB.find(item => item.keywords.some(k => userMsg.includes(k)));
       setChatHistory(prev => [...prev, { role: "eha", text: match ? match.response : "Segment not found. Check GitHub for full experimental logs." }]);
@@ -200,10 +253,15 @@ export default function Home() {
   };
 
   const handleDownload = () => {
-    setIsScanning(true); setScanProgress(0);
+    setIsScanning(true);
+    setScanProgress(0);
     const interval = setInterval(() => {
       setScanProgress(p => {
-        if (p >= 100) { clearInterval(interval); setTimeout(() => { setIsScanning(false); window.open('/Arpita_Mishra_CV.pdf', '_blank'); }, 500); return 100; }
+        if (p >= 100) {
+          clearInterval(interval);
+          setTimeout(() => { setIsScanning(false); window.open('/Arpita_Mishra_CV.pdf', '_blank'); }, 500);
+          return 100;
+        }
         return p + 5;
       });
     }, 100);
@@ -217,7 +275,7 @@ export default function Home() {
       <NeuralBackground isDark={isDark} />
       <HUDTerminal isDark={isDark} />
 
-      {/* SIDEBAR NAVIGATION (UNTOUCHED) */}
+      {/* SIDEBAR */}
       <button onClick={() => setIsSidebarOpen(true)} className="fixed top-8 left-8 z-[200] p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl hover:scale-110 shadow-2xl transition-all"><Menu className={isDark ? 'text-stark-cyan' : 'text-stark-red'} /></button>
       <AnimatePresence>
         {isSidebarOpen && (
@@ -233,7 +291,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* BIOMETRIC SCAN UI (UNTOUCHED) */}
+      {/* BIOMETRIC OVERLAY */}
       <AnimatePresence>
         {isScanning && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center p-10">
@@ -247,12 +305,12 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* POWER TOGGLE (UNTOUCHED) */}
+      {/* THEME TOGGLE */}
       <button onClick={() => setIsDark(!isDark)} className="fixed top-8 right-8 z-[110] p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl hover:rotate-180 transition-all">
         {isDark ? <Sun className="text-stark-gold" /> : <Moon className="text-stark-red" />}
       </button>
 
-      {/* EHA CHAT (UNTOUCHED) */}
+      {/* EHA CHAT */}
       <div className="fixed bottom-8 right-8 z-[110]">
         <AnimatePresence>
           {isEhaOpen && (
@@ -280,8 +338,8 @@ export default function Home() {
         </button>
       </div>
 
-      {/* HERO SECTION (ENHANCED TITLE) */}
-      <section className="relative h-screen flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+      {/* HERO SECTION */}
+      <section className="relative h-screen flex flex-col items-center justify-center p-6 text-center">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="relative w-48 h-48 flex items-center justify-center mb-10 mx-auto">
           <div className={`absolute inset-0 rounded-full border-4 border-dashed opacity-40 ${isDark ? 'border-stark-cyan shadow-[0_0_50px_#22d3ee]' : 'border-stark-red shadow-[0_0_50px_#ef4444]'}`} />
           <div className={`w-34 h-34 rounded-full border-8 flex items-center justify-center ${isDark ? 'border-stark-cyan/10' : 'border-stark-red/10'}`}>
@@ -292,9 +350,7 @@ export default function Home() {
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
           <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Mark-85 // Online</h2>
-          <h1 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-none mb-12 uppercase select-none relative glitch-text">
-            ARPITA <span className={isDark ? 'text-stark-red drop-shadow-[0_0_15px_#ef4444]' : 'text-stark-gold'}>MISHRA</span>
-          </h1>
+          <h1 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-none mb-12 uppercase select-none drop-shadow-2xl">ARPITA <span className={isDark ? 'text-stark-red' : 'text-stark-gold'}>MISHRA</span></h1>
           <div className="font-mono text-[10px] md:text-sm text-stark-cyan opacity-80 border-l-2 border-stark-cyan/30 pl-4 py-2 bg-stark-cyan/5 max-w-2xl mx-auto mb-10">
             <span className="font-bold mr-2 text-stark-cyan">[ROOT@EHA]:~#</span>{text}<span className="animate-pulse">_</span>
           </div>
@@ -305,8 +361,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ABOUT (WITH TILT & GLOW) */}
-      <section id="about" className="py-24 px-6 max-w-6xl mx-auto relative">
+      {/* ABOUT (WITH TILT) */}
+      <section id="about" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20 items-center">
           <TiltCard className="relative group">
             <div className={`absolute -inset-8 border border-dashed animate-[spin_30s_linear_infinite] rounded-3xl ${isDark ? 'border-stark-cyan/30' : 'border-stark-red/30'}`} />
@@ -316,7 +372,7 @@ export default function Home() {
             <h3 className={`font-mono text-sm tracking-[0.8em] uppercase flex items-center gap-4 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><Target size={24} /> Neural Identity</h3>
             <p className="italic font-bold text-4xl leading-tight">"Innovation is building armor for raw intelligence."</p>
             <p>{PROFILE.summary}</p>
-            <p>Inspired by the Stark Legacy, I architect Intelligent Armor for Data. My focus is **RAG and Computer Vision**, where I bridge raw inference and actionable, grounded truth.</p>
+            <p>Inspired by the relentless innovation of the Stark Legacy, I specialize in building Intelligent Armor for Data. My focus is RAG and Computer Vision, where I bridge raw inference and actionable, grounded truth.</p>
             <div className="grid grid-cols-3 gap-10 pt-10 border-t border-white/10 text-center">
               <div><p className={`text-5xl font-black ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>20+</p><p className="text-xs uppercase font-mono tracking-widest opacity-50 mt-2">Missions</p></div>
               <div><p className={`text-5xl font-black ${isDark ? 'text-stark-gold' : 'text-amber-500'}`}>8.11</p><p className="text-xs uppercase font-mono tracking-widest opacity-50 mt-2">CGPA</p></div>
@@ -327,7 +383,7 @@ export default function Home() {
       </section>
 
       {/* SKILLS */}
-      <section id="specs" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5 relative">
+      <section id="specs" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
         <h4 className="text-5xl font-black text-center uppercase mb-20 tracking-tighter leading-none">Armor Specifications</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SKILLS.map((cat, i) => (
@@ -342,14 +398,14 @@ export default function Home() {
       </section>
 
       {/* EXPERIENCE */}
-      <section id="history" className={`py-24 px-6 border-y border-white/5 relative ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
+      <section id="history" className={`py-24 px-6 border-y border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
         <div className="max-w-5xl mx-auto space-y-16">
           <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter">Operational History</h4>
           {EXPERIENCE.map((exp, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} className="grid grid-cols-1 md:grid-cols-[1.2fr_2.5fr] gap-12 group">
               <div className={`font-mono border-t-4 pt-8 ${isDark ? 'text-stark-red border-stark-red/30' : 'text-stark-red border-stark-red/60'}`}>
                 <span className="text-4xl font-black tracking-tighter">{exp.date}</span>
-                {exp.link && <a href={exp.link} target="_blank" className="flex items-center gap-3 text-xs mt-6 underline italic uppercase tracking-widest hover:text-white"><FileCheck size={18} /> Verify_Uplink</a>}
+                {exp.link && <a href={exp.link} target="_blank" className="flex items-center gap-3 text-xs mt-6 underline italic uppercase tracking-widest hover:text-white"><FileCheck size={18} /> Verify_Uplink_Hash</a>}
               </div>
               <div className="border-l-2 border-white/10 pl-14 pb-16 text-left relative">
                 <div className={`absolute -left-[7px] top-0 w-3 h-3 rounded-full ${isDark ? 'bg-stark-cyan shadow-[0_0_15px_#22d3ee]' : 'bg-stark-red shadow-[0_0_15px_#ef4444]'}`} />
@@ -363,17 +419,17 @@ export default function Home() {
       </section>
 
       {/* PROJECTS (TACTICAL ARCHIVES) */}
-      <section id="missions" className="py-24 px-6 max-w-7xl mx-auto relative">
+      <section id="missions" className="py-24 px-6 max-w-7xl mx-auto">
         <h4 className="text-5xl font-black text-center uppercase mb-24 tracking-tighter leading-none">Tactical Archives</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
           {PROJECTS.map((p, i) => (
-            <TiltCard key={i} className={`group relative border-2 p-12 flex flex-col h-full transition-all rounded-[2.5rem] overflow-hidden ${isDark ? 'bg-[#050505] border-white/10 hover:border-stark-cyan/40 shadow-2xl' : 'bg-white border-gray-200 hover:shadow-2xl'}`}>
+            <TiltCard key={i} className={`group relative border-2 p-12 flex flex-col h-full transition-all rounded-[2.5rem] overflow-hidden ${isDark ? 'bg-[#050505] border-white/10 hover:border-stark-cyan/40 shadow-2xl' : 'bg-white border-gray-100 hover:shadow-2xl'}`}>
               <div className={`absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-100 transition-all duration-700 scale-[2] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{p.icon}</div>
               <span className={`font-mono text-[10px] mb-8 uppercase tracking-[0.6em] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Mission_Log_v{100+i}</span>
               <h5 className="text-3xl font-black uppercase mb-6 tracking-tighter group-hover:text-stark-cyan transition-colors leading-tight">{p.title}</h5>
               <p className="text-base font-light leading-relaxed mb-12 flex-1 italic opacity-70 group-hover:opacity-100 italic">"{p.description}"</p>
               <div className="flex flex-wrap gap-3 mb-12">
-                {p.tags.map(t => <span key={t} className={`text-[11px] px-4 py-1.5 border font-mono rounded-lg ${isDark ? 'border-white/10 bg-white/5 text-gray-400' : 'border-gray-100 bg-gray-50 text-gray-500'}`}>{t}</span>)}
+                {p.tags.map(t => <span key={t} className={`text-[11px] px-4 py-1.5 border font-mono rounded-lg ${isDark ? 'border-white/10 bg-white/5 text-gray-500' : 'border-gray-100 bg-gray-50 text-gray-500'}`}>{t}</span>)}
               </div>
               <div className="flex gap-12 border-t border-white/10 pt-12 mt-auto">
                 <a href={p.github} target="_blank" className="hover:text-stark-cyan transition-all hover:scale-[1.8]"><Github size={28} /></a>
@@ -392,7 +448,7 @@ export default function Home() {
       </section>
 
       {/* COMMENDATIONS */}
-      <section className={`py-32 px-6 border-t border-white/5 relative ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
+      <section className={`py-32 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
           <div className="space-y-12">
             <h4 className="text-4xl font-black uppercase flex items-center gap-6"><Trophy className="text-stark-gold" size={40} /> Commendations</h4>
@@ -409,7 +465,7 @@ export default function Home() {
               <TiltCard key={i} className={`p-10 border-2 rounded-[2rem] transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50 shadow-2xl' : 'bg-white border-gray-200 shadow-2xl'}`}>
                 <h5 className={`text-xs font-mono uppercase mb-4 ${isDark ? 'text-stark-gold' : 'text-amber-600'}`}>{cert.issuer}</h5>
                 <p className="text-sm font-black uppercase leading-tight mb-8 tracking-tighter">{cert.title}</p>
-                <a href={cert.link} target="_blank" className="text-[10px] font-mono opacity-30 group-hover:opacity-100 uppercase tracking-widest flex items-center gap-3">Verify_Upgrade <ChevronRight size={14} /></a>
+                <a href={cert.link} target="_blank" className="text-[10px] font-mono opacity-30 group-hover:opacity-100 uppercase tracking-widest flex items-center gap-3">Verify_Encryption <ChevronRight size={14} /></a>
               </TiltCard>
             ))}
           </div>
@@ -417,9 +473,9 @@ export default function Home() {
       </section>
 
       {/* EDUCATION */}
-      <section id="education" className={`py-32 px-6 border-t border-white/5 relative ${isDark ? 'bg-white/[0.01]' : 'bg-gray-200/50'}`}>
+      <section id="education" className={`py-32 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-200/50'}`}>
         <div className="max-w-6xl mx-auto">
-          <h4 className="text-4xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> Academic Database</h4>
+          <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> Academic Database</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14 text-center">
             {EDUCATION.map((edu, i) => (
               <TiltCard key={i} className={`p-16 border-t-[14px] rounded-[3rem] text-center transition-all ${isDark ? `bg-white/5 border-stark-cyan hover:bg-white/[0.08] shadow-[0_0_40px_rgba(34,211,238,0.1)]` : `bg-white shadow-2xl border-stark-red`}`}>
@@ -433,8 +489,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEXUS */}
-      <section id="nexus" className="py-32 px-6 border-t border-white/5 bg-black relative">
+      {/* CONTACT (THE NEXUS) */}
+      <section id="nexus" className="py-32 px-6 border-t border-white/5 bg-black">
         <div className="max-w-6xl mx-auto text-center">
           <h4 className="text-6xl font-black uppercase mb-24 tracking-tighter flex items-center justify-center gap-10"><Target className="text-stark-red w-16 h-16" /> Establish Uplink</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10">
@@ -454,9 +510,6 @@ export default function Home() {
       
       <style jsx global>{`
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-        @keyframes shimmer { 0% { transform: translateX(-100%) skewX(-12deg); } 100% { transform: translateX(200%) skewX(-12deg); } }
-        @keyframes glitch { 0% { text-shadow: 2px 0 #0ff, -2px 0 #f0f; } 2% { text-shadow: -2px 0 #0ff, 2px 0 #f0f; } 4% { text-shadow: 0 0 0; } }
-        .glitch-text { animation: glitch 4s infinite linear alternate-reverse; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
