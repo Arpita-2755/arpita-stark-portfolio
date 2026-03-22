@@ -1,8 +1,32 @@
 "use client";
 import { motion } from "framer-motion";
-import { Zap, ExternalLink, Github, Database, Brain, Eye, Cpu, MessageSquare, Bus, Globe, BookOpen } from "lucide-react";
+import { Zap, ExternalLink, Github, Database, Brain, Eye, Cpu, MessageSquare, Bus, Globe, BookOpen, Layers, Code, Server, Shield } from "lucide-react";
 
-// Updated Project Database with Medium Links
+// 1. Skill Categories from your Resume
+const skillCategories = [
+  {
+    title: "Core Processors",
+    icon: <Code className="w-5 h-5 text-stark-red" />,
+    skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"]
+  },
+  {
+    title: "Neural Networks & GenAI",
+    icon: <Brain className="w-5 h-5 text-stark-cyan" />,
+    skills: ["TensorFlow", "Keras", "RAG", "LLMs", "SentenceTransformers", "HuggingFace"]
+  },
+  {
+    title: "Targeting Systems (CV)",
+    icon: <Eye className="w-5 h-5 text-stark-gold" />,
+    skills: ["Face Recognition", "OpenCV", "FAISS", "UMAP", "KMeans", "Similarity Calibration"]
+  },
+  {
+    title: "Support Systems",
+    icon: <Server className="w-5 h-5 text-green-400" />,
+    skills: ["AWS (EC2/S3)", "Docker", "Flask", "Django", "MySQL", "System Design"]
+  }
+];
+
+// 2. Project Database
 const projects = [
   {
     title: "GitaRAG",
@@ -11,7 +35,7 @@ const projects = [
     tags: ["FAISS", "SentenceTransformers", "Streamlit", "RAG"],
     github: "https://github.com/Arpita-2755/GitaRAG",
     demo: "https://gitarag-demo.streamlit.app/", 
-    medium: "https://medium.com/@arpitamishra2755/gitarag-building-extractive-pipelines-123", // REPLACE WITH ACTUAL
+    medium: "https://medium.com/@arpitamishra2755", 
     icon: <Database className="w-5 h-5 text-stark-cyan" />,
   },
   {
@@ -21,8 +45,8 @@ const projects = [
     tags: ["distilgpt2", "HuggingFace", "Python", "GenAI"],
     github: "https://github.com/Arpita-2755/PromptGuard",
     demo: "https://promptguard-demo.streamlit.app/", 
-    medium: "https://medium.com/@arpitamishra2755/promptguard-testing-llm-robustness-456", // REPLACE WITH ACTUAL
-    icon: <ShieldCheck className="w-5 h-5 text-stark-red" />,
+    medium: "https://medium.com/@arpitamishra2755", 
+    icon: <Shield className="w-5 h-5 text-stark-red" />,
   },
   {
     title: "IntelliCampus",
@@ -31,7 +55,7 @@ const projects = [
     tags: ["RetinaFace", "FaceNet", "Flask", "OpenCV"],
     github: "https://github.com/Arpita-2755/IntelliCampus",
     demo: null,
-    medium: "https://medium.com/@arpitamishra2755/intellicampus-ai-face-recognition-789", // REPLACE WITH ACTUAL
+    medium: "https://medium.com/@arpitamishra2755", 
     icon: <Eye className="w-5 h-5 text-stark-gold" />,
   },
   {
@@ -41,7 +65,7 @@ const projects = [
     tags: ["KMeans", "UMAP", "NLP", "Scikit-Learn"],
     github: "https://github.com/Arpita-2755",
     demo: null,
-    medium: null, // Keep null if no blog exists yet
+    medium: null, 
     icon: <MessageSquare className="w-5 h-5 text-blue-400" />,
   },
   {
@@ -66,13 +90,9 @@ const projects = [
   }
 ];
 
-function ShieldCheck({className}: {className:string}) {
-  return <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>;
-}
-
 export default function Home() {
-  const scrollToMissions = () => {
-    document.getElementById('missions')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -90,12 +110,12 @@ export default function Home() {
           </motion.div>
 
           <h2 className="text-stark-cyan font-mono text-sm tracking-[0.3em] mb-2 uppercase">System Status: Online</h2>
-          <h1 className="text-5xl md:text-8xl font-black mb-4 tracking-tighter">ARPITA <span className="text-stark-red">MISHRA</span></h1>
-          <p className="text-gray-400 max-w-lg mx-auto text-lg mb-8 font-light italic">"Proof of work is the only currency." — ML Engineer</p>
+          <h1 className="text-5xl md:text-8xl font-black mb-4 tracking-tighter uppercase">ARPITA <span className="text-stark-red">MISHRA</span></h1>
+          <p className="text-gray-400 max-w-lg mx-auto text-lg mb-8 font-light italic">"Building the future, one neuron at a time."</p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={scrollToMissions} className="px-8 py-3 bg-stark-red text-white font-bold rounded-sm border-b-4 border-red-800 hover:bg-red-500 active:border-b-0 active:translate-y-1 transition-all uppercase tracking-widest text-sm">Access Missions</button>
-            <a href="/Arpita_Mishra_CV.pdf" target="_blank" className="px-8 py-3 border border-stark-cyan text-stark-cyan font-bold rounded-sm hover:bg-stark-cyan/10 transition-all uppercase tracking-widest text-sm">Download Dossier</a>
+            <button onClick={() => scrollToSection('missions')} className="px-8 py-3 bg-stark-red text-white font-bold rounded-sm border-b-4 border-red-800 hover:bg-red-500 active:border-b-0 active:translate-y-1 transition-all uppercase tracking-widest text-sm">Access Missions</button>
+            <button onClick={() => scrollToSection('specs')} className="px-8 py-3 border border-white/20 text-white font-bold rounded-sm hover:bg-white/5 transition-all uppercase tracking-widest text-sm">Armor Specs</button>
           </div>
         </motion.div>
 
@@ -105,7 +125,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: MISSIONS (PROJECTS) */}
+      {/* SECTION 2: ARMOR SPECS (SKILLS) */}
+      <section id="specs" className="py-24 px-8 max-w-6xl mx-auto border-t border-white/5">
+        <div className="mb-16">
+          <h3 className="text-stark-cyan font-mono text-xs tracking-[0.5em] uppercase mb-4 text-center">System Capabilities</h3>
+          <h4 className="text-4xl font-black text-center uppercase tracking-tighter">Armor Specifications</h4>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {skillCategories.map((category, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="p-6 bg-white/[0.02] border border-white/10 rounded-lg hover:border-stark-cyan/30 transition-all"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                {category.icon}
+                <span className="text-xs font-bold uppercase tracking-widest text-gray-300">{category.title}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map(skill => (
+                  <span key={skill} className="px-3 py-1 bg-white/5 border border-white/5 text-[10px] font-mono text-gray-400 hover:text-stark-cyan hover:border-stark-cyan/50 transition-colors cursor-default">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3: MISSIONS (PROJECTS) */}
       <section id="missions" className="py-24 px-8 max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-16">
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-stark-cyan/30"></div>
@@ -118,8 +170,8 @@ export default function Home() {
             <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }} className="group relative p-8 bg-white/5 border border-white/10 rounded-sm hover:border-stark-cyan/50 hover:bg-white/[0.08] transition-all">
               <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">{project.icon}</div>
               <h4 className="text-[10px] font-mono text-stark-cyan mb-2 uppercase tracking-widest">Mission Log #{100 + index}</h4>
-              <h5 className="text-xl font-bold mb-3 tracking-tight group-hover:text-stark-cyan transition-colors">{project.title}</h5>
-              <p className="text-sm text-gray-400 mb-8 leading-relaxed h-12 overflow-hidden">{project.description}</p>
+              <h5 className="text-xl font-bold mb-3 tracking-tight group-hover:text-stark-cyan transition-colors uppercase">{project.title}</h5>
+              <p className="text-sm text-gray-400 mb-8 leading-relaxed h-12 overflow-hidden italic font-light">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tags.map(tag => (
@@ -127,21 +179,10 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* ACTION LINKS */}
               <div className="flex flex-wrap gap-4 border-t border-white/10 pt-6">
-                <a href={project.github} target="_blank" className="flex items-center gap-2 text-[10px] font-mono text-gray-400 hover:text-white transition-colors">
-                  <Github className="w-3.5 h-3.5" /> REPO
-                </a>
-                {project.demo && (
-                  <a href={project.demo} target="_blank" className="flex items-center gap-2 text-[10px] font-mono text-stark-cyan hover:text-white transition-colors">
-                    <Globe className="w-3.5 h-3.5" /> LIVE_DEMO
-                  </a>
-                )}
-                {project.medium && (
-                  <a href={project.medium} target="_blank" className="flex items-center gap-2 text-[10px] font-mono text-stark-gold hover:text-white transition-colors">
-                    <BookOpen className="w-3.5 h-3.5" /> MISSION_REPORT
-                  </a>
-                )}
+                <a href={project.github} target="_blank" className="flex items-center gap-2 text-[10px] font-mono text-gray-400 hover:text-white transition-colors"><Github className="w-3.5 h-3.5" /> REPO</a>
+                {project.demo && <a href={project.demo} target="_blank" className="flex items-center gap-2 text-[10px] font-mono text-stark-cyan hover:text-white transition-colors"><Globe className="w-3.5 h-3.5" /> LIVE_DEMO</a>}
+                {project.medium && <a href={project.medium} target="_blank" className="flex items-center gap-2 text-[10px] font-mono text-stark-gold hover:text-white transition-colors"><BookOpen className="w-3.5 h-3.5" /> REPORT</a>}
               </div>
             </motion.div>
           ))}
