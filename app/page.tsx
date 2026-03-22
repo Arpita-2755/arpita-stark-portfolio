@@ -8,7 +8,7 @@ import {
   Twitter, Target, User, Send, Phone, Sun, Moon, Layers, Menu, X, Scan, Loader2, Radar
 } from "lucide-react";
 
-// --- DATA REPOSITORY (UNTOUCHED & COMPLETE) ---
+// --- DATA REPOSITORY (UNTOUCHED) ---
 const PROFILE = {
   name: "Arpita Mishra",
   summary: "Machine Learning Engineer specializing in retrieval systems, representation learning, and applied AI system design. Architect of end-to-end ML pipelines spanning embedding generation, vector search optimization, and production deployment.",
@@ -71,7 +71,6 @@ const CONTACT_LINKS = [
   { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" }
 ];
 
-// --- EHA'S KNOWLEDGE BASE (Full Data Injection) ---
 const EHA_KB = [
   { keywords: ["cgpa", "marks", "score", "grade", "10th", "12th", "dean"], response: "Arpita holds an 8.11 CGPA at LPU (Top 15%, Dean's List). Schooling: 93.8% in 10th and 84.8% in 12th at Lions English School." },
   { keywords: ["slot", "healthcare", "recommendation", "synthetic"], response: "The Slot Recommender uses synthetic patient datasets and TF-IDF extraction with Logistic Regression to achieve 80%+ intent accuracy for appointment slot mapping." },
@@ -156,29 +155,22 @@ export default function Home() {
   const [isEhaOpen, setIsEhaOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // INFINITE TYPEWRITER LOGIC
   const [heroText, setHeroText] = useState("");
   const fullHeroText = "Initializing Protocol: Arpita Mishra... Mark-85 Neural Core active... Accessing archives for ML Engineer specialized in RAG & CV...";
 
   useEffect(() => {
-    let i = 0;
-    let isDeleting = false;
+    let i = 0; let isDeleting = false;
     const type = () => {
       const currentText = fullHeroText;
       if (!isDeleting) {
-        setHeroText(currentText.slice(0, i + 1));
-        i++;
-        if (i === currentText.length) {
-          setTimeout(() => isDeleting = true, 3000); // Wait before clearing
-        }
+        setHeroText(currentText.slice(0, i + 1)); i++;
+        if (i === currentText.length) { setTimeout(() => isDeleting = true, 3000); }
       } else {
-        setHeroText(currentText.slice(0, i - 1));
-        i--;
+        setHeroText(currentText.slice(0, i - 1)); i--;
         if (i === 0) isDeleting = false;
       }
     };
-    const timer = setInterval(type, 30);
-    return () => clearInterval(timer);
+    const timer = setInterval(type, 30); return () => clearInterval(timer);
   }, []);
 
   const handleEhaChat = (e: React.FormEvent) => {
@@ -241,7 +233,7 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} className={`mb-4 w-85 h-[500px] border backdrop-blur-3xl rounded-2xl flex flex-col shadow-2xl ${isDark ? 'bg-black/95 border-stark-cyan/40' : 'bg-white/95 border-stark-red/40'}`}>
               <div className={`p-5 border-b flex justify-between items-center ${isDark ? 'bg-stark-cyan/10 border-white/10' : 'bg-stark-red/10 border-gray-200'}`}>
                 <span className={`text-xs font-mono tracking-widest uppercase flex items-center gap-3 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><Cpu size={16} /> Eha Intelligence</span>
-                <button onClick={() => setIsEhaOpen(false)} className="opacity-40 font-bold">×</button>
+                <button onClick={() => setIsEhaOpen(false)} className="opacity-40">×</button>
               </div>
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-5 scrollbar-hide text-[11px] font-mono leading-relaxed">
                 {chatHistory.map((msg, i) => (
@@ -257,7 +249,7 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-        <button onClick={() => setIsEhaOpen(!isEhaOpen)} className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all ${isDark ? 'bg-stark-cyan' : 'bg-stark-red'}`}>
+        <button onClick={() => setIsEhaOpen(!isEhaOpen)} className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all ${isDark ? 'bg-stark-cyan shadow-stark-cyan/40' : 'bg-stark-red shadow-stark-red/40'}`}>
           <MessageSquare className={isDark ? 'text-black' : 'text-white'} size={28} />
         </button>
       </div>
@@ -274,11 +266,9 @@ export default function Home() {
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Mark-85 Initialize // Arpita Mishra</h2>
-          
           <h1 className={`text-7xl md:text-[9rem] font-black tracking-tighter leading-none mb-12 uppercase select-none transition-all duration-1000 ${isDark ? 'text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] animate-pulse' : 'text-gray-900'}`}>
             ARPITA <span className={isDark ? 'text-stark-red drop-shadow-[0_0_20px_#ef4444]' : 'text-stark-gold'}>MISHRA</span>
           </h1>
-          
           <div className="font-mono text-[10px] md:text-sm text-stark-cyan opacity-80 border-l-2 border-stark-cyan/30 pl-4 py-2 bg-stark-cyan/5 max-w-2xl mx-auto mb-10 text-left">
             <span className="font-bold mr-2 text-stark-cyan">[ROOT@EHA]:~#</span>{heroText}<span className="animate-pulse">_</span>
           </div>
@@ -310,18 +300,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. SKILLS */}
+      {/* 7. SKILLS (FIXED: EVERY-TIME SLIDE-IN FROM LEFT) */}
       <section id="specs" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
         <h4 className="text-4xl font-black text-center uppercase mb-20 tracking-tighter">Armor Specifications</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SKILLS.map((cat, i) => (
-            <TiltCard key={i} className={`p-8 border rounded-3xl transition-all group relative overflow-hidden ${isDark ? 'bg-[#0a0a0a] border-white/10 hover:border-stark-cyan/30' : 'bg-white border-gray-200 shadow-2xl'}`}>
-              <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 ${isDark ? 'bg-stark-cyan shadow-[0_0_15px_#22d3ee]' : 'bg-stark-red shadow-[0_0_15px_#ef4444]'}`} />
-              <div className={`flex items-center gap-4 mb-8 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{cat.icon}<span className="text-sm font-black uppercase tracking-[0.3em]">{cat.title}</span></div>
-              <div className="flex flex-wrap gap-3">
-                {cat.skills.map(s => <span key={s} className={`px-4 py-2 text-[10px] font-mono rounded-xl border transition-all ${isDark ? 'bg-white/5 border-white/10 text-gray-400 group-hover:text-stark-cyan' : 'bg-gray-100 text-gray-600 group-hover:text-stark-red'}`}>{s}</span>)}
-              </div>
-            </TiltCard>
+            <motion.div
+              key={i}
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.1, type: "spring", stiffness: 50 }}
+            >
+              <TiltCard className={`p-8 border rounded-3xl transition-all group relative overflow-hidden ${isDark ? 'bg-[#0a0a0a] border-white/10 hover:border-stark-cyan/30' : 'bg-white border-gray-200 shadow-2xl'}`}>
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 ${isDark ? 'bg-stark-cyan shadow-[0_0_15px_#22d3ee]' : 'bg-stark-red shadow-[0_0_15px_#ef4444]'}`} />
+                <div className={`flex items-center gap-4 mb-8 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{cat.icon}<span className="text-sm font-black uppercase tracking-[0.3em]">{cat.title}</span></div>
+                <div className="flex flex-wrap gap-3">
+                  {cat.skills.map(s => <span key={s} className={`px-4 py-2 text-[10px] font-mono rounded-xl border transition-all ${isDark ? 'bg-white/5 border-white/10 text-gray-400 group-hover:text-stark-cyan' : 'bg-gray-100 text-gray-600 group-hover:text-stark-red'}`}>{s}</span>)}
+                </div>
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -335,7 +333,7 @@ export default function Home() {
               key={i} 
               initial={{ opacity: 0, y: 50 }} 
               whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="grid grid-cols-1 md:grid-cols-[1.2fr_2.5fr] gap-12 group"
             >
@@ -410,14 +408,14 @@ export default function Home() {
       {/* 11. EDUCATION */}
       <section id="education" className={`py-32 px-6 border-t border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-200/50'}`}>
         <div className="max-w-6xl mx-auto">
-          <h4 className="text-4xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> Academic Database</h4>
+          <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> Academic Database</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14 text-center">
             {EDUCATION.map((edu, i) => (
               <TiltCard key={i} className={`p-16 border-t-[14px] rounded-[3rem] text-center transition-all ${isDark ? `bg-white/5 border-stark-cyan hover:bg-white/[0.08] shadow-[0_0_40px_rgba(34,211,238,0.1)]` : `bg-white shadow-2xl border-stark-red`}`}>
                 <h5 className="text-3xl font-black uppercase mb-2 tracking-tighter">{edu.title}</h5>
                 <p className="text-xs font-mono mb-8 opacity-50 tracking-[0.4em]">{edu.school} // {edu.date}</p>
                 <p className={`text-6xl font-black mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>{edu.score}</p>
-                <p className={`text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full border inline-block ${isDark ? 'border-stark-cyan text-stark-cyan' : 'border-stark-red text-stark-red'}`}>{edu.detail}</p>
+                <p className={`text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border inline-block ${isDark ? 'border-stark-cyan text-stark-cyan' : 'border-stark-red text-stark-red'}`}>{edu.detail}</p>
               </TiltCard>
             ))}
           </div>
@@ -429,7 +427,15 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
           <h4 className="text-6xl font-black uppercase mb-24 tracking-tighter flex items-center justify-center gap-10"><Target className="text-stark-red w-16 h-16" /> Establish Uplink</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10">
-            {CONTACT_LINKS.map((s, i) => (
+            {[
+              { icon: <Mail />, label: "Email", link: `mailto:${PROFILE.email}`, color: "hover:bg-red-500" },
+              { icon: <Linkedin />, label: "LinkedIn", link: "https://linkedin.com/in/arpita2755", color: "hover:bg-blue-600" },
+              { icon: <Github />, label: "GitHub", link: "https://github.com/Arpita-2755", color: "hover:bg-gray-700" },
+              { icon: <Code />, label: "LeetCode", link: "https://leetcode.com/u/Arpita_2755/", color: "hover:bg-orange-500" },
+              { icon: <BookOpen />, label: "Medium", link: "https://medium.com/@arpitamishra2755", color: "hover:bg-green-600" },
+              { icon: <Twitter />, label: "X", link: "https://x.com/ArpitaM_2755", color: "hover:bg-sky-500" },
+              { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" },
+            ].map((s, i) => (
               <a key={i} href={s.link} target="_blank" className={`flex flex-col items-center gap-8 p-12 border rounded-[2.5rem] transition-all bg-white/[0.02] border-white/10 hover:bg-white/5 group shadow-2xl`}>
                 <div className={`transition-all duration-500 scale-[2] group-hover:scale-[2.5] group-hover:text-stark-cyan`}>{s.icon}</div>
                 <span className="text-[10px] font-mono uppercase tracking-[0.3em] mt-6 opacity-40 group-hover:opacity-100 group-hover:text-white">{s.label}</span>
