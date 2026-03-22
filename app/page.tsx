@@ -22,12 +22,12 @@ const PROFILE = {
 const SKILLS = [
   { title: "Core Processors", icon: <Code className="text-stark-red" />, skills: ["Python", "C++", "C", "Java", "SQL", "JavaScript"] },
   { title: "Neural & GenAI", icon: <Brain className="text-stark-cyan" />, skills: ["RAG", "LLMs", "TensorFlow", "Keras", "SentenceTransformers", "HuggingFace", "Prompt Robustness", "TF-IDF"] },
-  { title: "Targeting (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
+  { title: "Targeting Systems (CV)", icon: <Eye className="text-stark-gold" />, skills: ["Face Recognition", "Vector Search", "FAISS", "UMAP", "Similarity Metrics", "Threshold Calibration", "RetinaFace", "FaceNet"] },
   { title: "Cloud & Support", icon: <Server className="text-green-400" />, skills: ["AWS (EC2/S3)", "Docker", "Git/GitHub", "Flask", "Django", "MySQL", "MongoDB", "System Design"] }
 ];
 
 const PROJECTS = [
-  { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating hallucination through semantic grounding in 700+ verse embeddings using FAISS L2-normalized search (0.45 threshold) and mean-confidence calibration.", tags: ["FAISS", "MiniLM", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Database /> },
+  { title: "GitaRAG", subtitle: "Extractive RAG System", description: "Engineered a fully extractive RAG architecture eliminating generative hallucination through semantic grounding in 700+ verse embeddings using FAISS L2-normalized search (0.45 threshold) and mean-confidence calibration.", tags: ["FAISS", "MiniLM", "RAG"], github: "https://github.com/Arpita-2755/GitaRAG", demo: "https://gitarag.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Database /> },
   { title: "Slot Recommender", subtitle: "Healthcare NLP Intent", description: "NLP system converting patient queries into appointment slots. Implemented hierarchical recommendation mapping intent to urgency levels with 80%+ accuracy using synthetic datasets and TF-IDF.", tags: ["Scikit-learn", "TF-IDF", "Streamlit"], github: "https://github.com/Arpita-2755", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Activity /> },
   { title: "PromptGuard", subtitle: "LLM Robustness", description: "Deterministic prompt-mutation engine for detecting behavioral drift and response instability in LLMs without requiring labeled ground truth. Enforced inference determinism.", tags: ["distilgpt2", "HuggingFace", "Python"], github: "https://github.com/Arpita-2755/PromptGuard", demo: "https://promptguard-llm-robustness.streamlit.app", medium: "https://medium.com/@arpitamishra2755", icon: <Shield /> },
   { title: "IntelliCampus", subtitle: "AI Smart Attendance", description: "Sub-second multi-face identification using RetinaFace and FaceNet. Built a modular AI engine decoupled from Flask routes, supporting automatic FAISS index rebuilding.", tags: ["RetinaFace", "FaceNet", "Flask"], github: "https://github.com/Arpita-2755/IntelliCampus", demo: null, medium: "https://medium.com/@arpitamishra2755", icon: <Eye /> },
@@ -71,7 +71,7 @@ const CONTACT_LINKS = [
   { icon: <Phone />, label: "Call", link: `tel:${PROFILE.phone}`, color: "hover:bg-stark-cyan hover:text-black" }
 ];
 
-// --- EHA'S BRAIN (Full Data Injection) ---
+// --- EHA'S KNOWLEDGE BASE (Full Data Injection) ---
 const EHA_KB = [
   { keywords: ["cgpa", "marks", "score", "grade", "10th", "12th", "dean"], response: "Arpita holds an 8.11 CGPA at LPU (Top 15%, Dean's List). Schooling: 93.8% in 10th and 84.8% in 12th at Lions English School." },
   { keywords: ["slot", "healthcare", "recommendation", "synthetic"], response: "The Slot Recommender uses synthetic patient datasets and TF-IDF extraction with Logistic Regression to achieve 80%+ intent accuracy for appointment slot mapping." },
@@ -82,7 +82,7 @@ const EHA_KB = [
   { keywords: ["who", "arpita", "mishra"], response: "Arpita Mishra is an ML Engineer and Visionary Architect specializing in reliability-driven AI. She is currently running on the MARK-85 protocol." }
 ];
 
-// --- ADVANCED UI HELPERS ---
+// --- UI HELPERS ---
 
 const NeuralBackground = ({ isDark }: { isDark: boolean }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -155,12 +155,29 @@ export default function Home() {
   const [chatHistory, setChatHistory] = useState([{ role: "eha", text: "Eha Protocol Online. Neural links active." }]);
   const [isEhaOpen, setIsEhaOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  
+  // INFINITE TYPEWRITER LOGIC
   const [heroText, setHeroText] = useState("");
   const fullHeroText = "Initializing Protocol: Arpita Mishra... Mark-85 Neural Core active... Accessing archives for ML Engineer specialized in RAG & CV...";
 
   useEffect(() => {
     let i = 0;
-    const timer = setInterval(() => { setHeroText(fullHeroText.slice(0, i)); i++; if (i > fullHeroText.length) clearInterval(timer); }, 30);
+    let isDeleting = false;
+    const type = () => {
+      const currentText = fullHeroText;
+      if (!isDeleting) {
+        setHeroText(currentText.slice(0, i + 1));
+        i++;
+        if (i === currentText.length) {
+          setTimeout(() => isDeleting = true, 3000); // Wait before clearing
+        }
+      } else {
+        setHeroText(currentText.slice(0, i - 1));
+        i--;
+        if (i === 0) isDeleting = false;
+      }
+    };
+    const timer = setInterval(type, 30);
     return () => clearInterval(timer);
   }, []);
 
@@ -224,7 +241,7 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} className={`mb-4 w-85 h-[500px] border backdrop-blur-3xl rounded-2xl flex flex-col shadow-2xl ${isDark ? 'bg-black/95 border-stark-cyan/40' : 'bg-white/95 border-stark-red/40'}`}>
               <div className={`p-5 border-b flex justify-between items-center ${isDark ? 'bg-stark-cyan/10 border-white/10' : 'bg-stark-red/10 border-gray-200'}`}>
                 <span className={`text-xs font-mono tracking-widest uppercase flex items-center gap-3 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}><Cpu size={16} /> Eha Intelligence</span>
-                <button onClick={() => setIsEhaOpen(false)} className="opacity-40">×</button>
+                <button onClick={() => setIsEhaOpen(false)} className="opacity-40 font-bold">×</button>
               </div>
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-5 scrollbar-hide text-[11px] font-mono leading-relaxed">
                 {chatHistory.map((msg, i) => (
@@ -235,7 +252,7 @@ export default function Home() {
               </div>
               <form onSubmit={handleEhaChat} className="p-5 border-t border-white/10 flex gap-3">
                 <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} placeholder="Query Eha..." className="flex-1 bg-transparent border border-white/10 p-3 text-xs focus:outline-none" />
-                <button type="submit" className={`px-5 py-2 rounded-lg ${isDark ? 'bg-stark-cyan text-black' : 'bg-stark-red text-white'}`}><Send size={16} /></button>
+                <button type="submit" className={`px-5 py-2 rounded-lg transition-all ${isDark ? 'bg-stark-cyan text-black' : 'bg-stark-red text-white'}`}><Send size={16} /></button>
               </form>
             </motion.div>
           )}
@@ -258,7 +275,6 @@ export default function Home() {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h2 className={`font-mono text-xs tracking-[1.5em] mb-4 uppercase opacity-60 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Mark-85 Initialize // Arpita Mishra</h2>
           
-          {/* ELITE ENHANCEMENT: Pulsing Hero Name */}
           <h1 className={`text-7xl md:text-[9rem] font-black tracking-tighter leading-none mb-12 uppercase select-none transition-all duration-1000 ${isDark ? 'text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] animate-pulse' : 'text-gray-900'}`}>
             ARPITA <span className={isDark ? 'text-stark-red drop-shadow-[0_0_20px_#ef4444]' : 'text-stark-gold'}>MISHRA</span>
           </h1>
@@ -267,7 +283,7 @@ export default function Home() {
             <span className="font-bold mr-2 text-stark-cyan">[ROOT@EHA]:~#</span>{heroText}<span className="animate-pulse">_</span>
           </div>
           <div className="flex flex-wrap gap-6 justify-center mt-10">
-            <button onClick={() => scrollTo('about')} className={`px-16 py-6 font-black uppercase tracking-widest text-xs transition-all border-b-8 rounded-2xl ${isDark ? 'bg-stark-red border-red-900 text-white hover:bg-red-500 hover:-translate-y-1' : 'bg-stark-gold border-amber-900 text-white hover:bg-amber-500'}`}>Identity Protocol</button>
+            <button onClick={() => scrollTo('about')} className={`px-16 py-6 font-black uppercase tracking-widest text-xs transition-all border-b-8 rounded-2xl ${isDark ? 'bg-stark-red border-red-900 text-white hover:bg-red-500 hover:-translate-y-1' : 'bg-stark-gold border-amber-500 text-white hover:bg-amber-500'}`}>Identity Protocol</button>
             <button onClick={handleDownload} className={`px-16 py-6 border-2 font-black uppercase tracking-widest text-xs transition-all rounded-2xl ${isDark ? 'border-stark-cyan text-stark-cyan hover:bg-stark-cyan/10 hover:shadow-[0_0_30px_#22d3ee]' : 'border-stark-red text-stark-red hover:bg-stark-red/10'}`}>Secure Dossier</button>
           </div>
         </motion.div>
@@ -284,7 +300,7 @@ export default function Home() {
             <h4 className="text-5xl font-black uppercase tracking-tighter leading-tight">The Visionary Architect</h4>
             <p className="italic font-bold text-3xl leading-tight">"If a system is noisy, it is failed armor. Grounding is the key."</p>
             <p>{PROFILE.summary}</p>
-            <p>Inspired by the relentless innovation of the Stark Legacy, I specialize in building Intelligent Armor for Data. My focus is RAG and Computer Vision, where I bridge raw data and grounded truth.</p>
+            <p>Inspired by the Stark Legacy, I specialize in building Intelligent Armor for Data. My focus is RAG and Computer Vision, where I bridge raw data and grounded truth.</p>
             <div className="grid grid-cols-3 gap-10 pt-10 border-t border-white/10 text-center">
               <div><p className={`text-5xl font-black ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>20+</p><p className="text-xs uppercase font-mono tracking-widest opacity-60">Repos</p></div>
               <div><p className={`text-5xl font-black ${isDark ? 'text-stark-gold' : 'text-amber-500'}`}>8.11</p><p className="text-xs uppercase font-mono tracking-widest opacity-60">CGPA</p></div>
@@ -294,16 +310,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. SKILLS (ENHANCED WITH TOP-CENTER BEAMS) */}
+      {/* 7. SKILLS */}
       <section id="specs" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
         <h4 className="text-4xl font-black text-center uppercase mb-20 tracking-tighter">Armor Specifications</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SKILLS.map((cat, i) => (
             <TiltCard key={i} className={`p-8 border rounded-3xl transition-all group relative overflow-hidden ${isDark ? 'bg-[#0a0a0a] border-white/10 hover:border-stark-cyan/30' : 'bg-white border-gray-200 shadow-2xl'}`}>
-              
-              {/* ELITE ENHANCEMENT: Top-Center Beam on Hover */}
               <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 ${isDark ? 'bg-stark-cyan shadow-[0_0_15px_#22d3ee]' : 'bg-stark-red shadow-[0_0_15px_#ef4444]'}`} />
-              
               <div className={`flex items-center gap-4 mb-8 ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{cat.icon}<span className="text-sm font-black uppercase tracking-[0.3em]">{cat.title}</span></div>
               <div className="flex flex-wrap gap-3">
                 {cat.skills.map(s => <span key={s} className={`px-4 py-2 text-[10px] font-mono rounded-xl border transition-all ${isDark ? 'bg-white/5 border-white/10 text-gray-400 group-hover:text-stark-cyan' : 'bg-gray-100 text-gray-600 group-hover:text-stark-red'}`}>{s}</span>)}
@@ -313,12 +326,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. EXPERIENCE */}
+      {/* 8. EXPERIENCE (RESTORED SCROLL ANIMATION) */}
       <section id="history" className={`py-24 px-6 border-y border-white/5 ${isDark ? 'bg-white/[0.01]' : 'bg-gray-100'}`}>
         <div className="max-w-5xl mx-auto space-y-16">
           <h4 className="text-5xl font-black uppercase text-center mb-24 tracking-tighter">Operational History</h4>
           {EXPERIENCE.map((exp, i) => (
-            <div key={i} className="grid grid-cols-1 md:grid-cols-[1.2fr_2.5fr] gap-12 group">
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="grid grid-cols-1 md:grid-cols-[1.2fr_2.5fr] gap-12 group"
+            >
               <div className={`font-mono border-t-4 pt-8 ${isDark ? 'text-stark-red border-stark-red/30' : 'text-stark-red border-stark-red/60'}`}>
                 <span className="text-4xl font-black tracking-tighter">{exp.date}</span>
                 {exp.link && <a href={exp.link} target="_blank" className="flex items-center gap-3 text-xs mt-6 underline italic uppercase tracking-widest hover:text-white"><FileCheck size={18} /> Verify_Uplink</a>}
@@ -329,7 +349,7 @@ export default function Home() {
                 <h6 className={`font-mono text-sm mb-6 uppercase tracking-widest ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{exp.company}</h6>
                 <p className={`text-xl font-light italic leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>"{exp.desc}"</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -341,7 +361,7 @@ export default function Home() {
           {PROJECTS.map((p, i) => (
             <TiltCard key={i} className={`group relative border-2 p-12 flex flex-col h-full transition-all rounded-[2.5rem] overflow-hidden ${isDark ? 'bg-[#050505] border-white/10 hover:border-stark-cyan/40 shadow-2xl' : 'bg-white border-gray-200 hover:shadow-2xl'}`}>
               <div className={`absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-100 transition-all duration-700 scale-[2] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>{p.icon}</div>
-              <span className={`font-mono text-[10px] mb-8 uppercase tracking-[0.6em] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Log: Mission_{100+i}</span>
+              <span className={`font-mono text-[10px] mb-8 uppercase tracking-[0.6em] ${isDark ? 'text-stark-cyan' : 'text-stark-red'}`}>Log: Mission_v{100+i}</span>
               <h5 className="text-3xl font-black uppercase mb-6 tracking-tighter group-hover:text-stark-cyan transition-colors leading-tight">{p.title}</h5>
               <p className="text-base font-light leading-relaxed mb-12 flex-1 italic opacity-70 group-hover:opacity-100 italic">"{p.description}"</p>
               <div className="flex flex-wrap gap-3 mb-12">
@@ -357,7 +377,7 @@ export default function Home() {
         </div>
         <div className="mt-32 text-center p-24 border-4 border-dashed border-white/5 rounded-[4rem] group hover:border-stark-cyan/20 transition-all relative overflow-hidden">
           <h4 className="text-5xl font-black mb-8 uppercase tracking-tight">Open Global Database</h4>
-          <p className="text-gray-500 mb-16 max-w-xl mx-auto font-mono text-base uppercase tracking-widest italic opacity-60">20+ Multi-Mission Repositories // Neural Logs Active</p>
+          <p className="text-gray-500 mb-16 max-w-xl mx-auto font-mono text-base uppercase tracking-widest italic opacity-60">20+ Multi-Mission Repositories // Mainframe Status: Synchronized</p>
           <a href="https://github.com/Arpita-2755" target="_blank" className={`px-20 py-8 font-black uppercase rounded-3xl transition-all relative z-10 text-lg ${isDark ? 'bg-white text-black hover:bg-stark-cyan hover:shadow-[0_0_60px_#22d3ee]' : 'bg-stark-red text-white hover:bg-red-500 shadow-2xl'}`}>Access Mainframe</a>
         </div>
       </section>
@@ -377,7 +397,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 h-fit">
             <h4 className="text-4xl font-black uppercase col-span-full flex items-center gap-6"><Award className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={40} /> System Upgrades</h4>
             {CERTIFICATES.map((cert, i) => (
-              <TiltCard key={i} className={`p-10 border-2 rounded-[2rem] transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50' : 'bg-white border-gray-200 shadow-2xl'}`}>
+              <TiltCard key={i} className={`p-10 border-2 rounded-[2rem] transition-all group ${isDark ? 'bg-white/[0.02] border-white/10 hover:border-stark-gold/50 shadow-2xl' : 'bg-white border-gray-200 shadow-2xl'}`}>
                 <h5 className={`text-xs font-mono uppercase mb-4 ${isDark ? 'text-stark-gold' : 'text-amber-600'}`}>{cert.issuer}</h5>
                 <p className="text-sm font-black uppercase leading-tight mb-8 tracking-tighter">{cert.title}</p>
                 <a href={cert.link} target="_blank" className="text-[10px] font-mono opacity-30 group-hover:opacity-100 uppercase tracking-widest flex items-center gap-3">Verify_Encryption <ChevronRight size={14} /></a>
@@ -393,11 +413,11 @@ export default function Home() {
           <h4 className="text-4xl font-black uppercase text-center mb-24 tracking-tighter flex items-center justify-center gap-8"><GraduationCap className={isDark ? 'text-stark-cyan' : 'text-stark-red'} size={50} /> Academic Database</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14 text-center">
             {EDUCATION.map((edu, i) => (
-              <TiltCard key={i} className={`p-16 border-t-[14px] rounded-[3rem] text-center transition-all ${isDark ? `bg-white/5 border-stark-cyan hover:bg-white/[0.08]` : `bg-white shadow-2xl border-stark-red`}`}>
+              <TiltCard key={i} className={`p-16 border-t-[14px] rounded-[3rem] text-center transition-all ${isDark ? `bg-white/5 border-stark-cyan hover:bg-white/[0.08] shadow-[0_0_40px_rgba(34,211,238,0.1)]` : `bg-white shadow-2xl border-stark-red`}`}>
                 <h5 className="text-3xl font-black uppercase mb-2 tracking-tighter">{edu.title}</h5>
                 <p className="text-xs font-mono mb-8 opacity-50 tracking-[0.4em]">{edu.school} // {edu.date}</p>
                 <p className={`text-6xl font-black mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>{edu.score}</p>
-                <p className={`text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border inline-block ${isDark ? 'border-stark-cyan text-stark-cyan' : 'border-stark-red text-stark-red'}`}>{edu.detail}</p>
+                <p className={`text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full border inline-block ${isDark ? 'border-stark-cyan text-stark-cyan' : 'border-stark-red text-stark-red'}`}>{edu.detail}</p>
               </TiltCard>
             ))}
           </div>
